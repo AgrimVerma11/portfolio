@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeader from "@/components/SectionHeader";
@@ -41,6 +42,16 @@ const ENTRIES = [
     description:
       "Organised DevFest with 400+ attendees — designed the AI/ML bootcamp track and mentored students through it.",
     gdg: true,
+    photos: [
+      {
+        src: "/events/devfest-speaking.jpg",
+        alt: "Agrim teaching supervised learning at the DevFest AI/ML bootcamp",
+      },
+      {
+        src: "/events/devfest-stage.jpg",
+        alt: "Agrim on stage at DevFest Thapar 2025, in front of the GDG letters",
+      },
+    ],
   },
   {
     year: "2025",
@@ -160,6 +171,24 @@ export default function Timeline() {
                       <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
                         {entry.description}
                       </p>
+                      {entry.photos && (
+                        <div className="mt-4 grid grid-cols-2 gap-2">
+                          {entry.photos.map((photo) => (
+                            <div
+                              key={photo.src}
+                              className="relative aspect-[3/4] overflow-hidden rounded-lg border border-white/5"
+                            >
+                              <Image
+                                src={photo.src}
+                                alt={photo.alt}
+                                fill
+                                sizes="(min-width: 768px) 220px, 40vw"
+                                className="object-cover transition-transform duration-500 hover:scale-105"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </article>
                   </Reveal>
                 </div>

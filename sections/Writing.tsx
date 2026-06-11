@@ -7,16 +7,17 @@ import { site } from "@/lib/site";
 
 const POSTS = [
   {
-    category: "Philosophy",
-    title: "The Craftsman and the Compiler",
+    category: "Mysticism · Philosophy",
+    title: "The Unknown, Unknowns",
     excerpt:
-      "What a woodworker's respect for grain teaches about writing functions meant to last.",
+      "Alpajña — on the grace of not knowing, and the roads we couldn't have planned.",
+    href: "https://agrimverma.substack.com/p/the-unknown-unknowns",
   },
   {
-    category: "Mysticism",
-    title: "Stillness and Stack Traces",
-    excerpt:
-      "Debugging as contemplative practice — what the mind does when the program won't run.",
+    category: "The Genesis",
+    title: "Chronicles of this Soul",
+    excerpt: "The first entry — where this Substack, and the writing, begins.",
+    href: "https://agrimverma.substack.com/p/chronicles-of-this-soul",
   },
 ];
 
@@ -35,7 +36,7 @@ export default function Writing() {
         {POSTS.map((post, i) => (
           <Reveal key={post.title} delay={0.1 + i * 0.1}>
             <a
-              href={site.substack}
+              href={post.href}
               target="_blank"
               rel="noopener noreferrer"
               className="group block h-full rounded-xl border border-white/5 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"

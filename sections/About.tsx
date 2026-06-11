@@ -19,7 +19,6 @@ const TERMINAL_LINES = [
 const STATS = [
   { value: "3+", label: "Projects" },
   { value: "GDG", label: "AI/ML Mentor", gdg: true },
-  { value: "400+", label: "DevFest Attendees" },
   { value: "'27", label: "TIET" },
 ];
 
@@ -76,7 +75,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.25} className="mt-10">
-            <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <dl className="grid grid-cols-3 gap-4">
               {STATS.map((stat) => (
                 <div
                   key={stat.label}

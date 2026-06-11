@@ -27,14 +27,14 @@ export const projects: Project[] = [
     slug: "opportunity-quest",
     title: "Opportunity Quest",
     tagline:
-      "A full-stack platform connecting students with opportunities — internships, hackathons, research, and more.",
+      "A production-grade platform that turns scattered campus opportunities — internships, research, hackathons — into one structured, searchable pipeline.",
     description:
-      "A production-hardened MERN platform where students discover, filter, and track opportunities in one place — built with security and scalability as first-class concerns, not afterthoughts.",
+      "A security-hardened MERN platform engineered end to end, solo: schema-first data modeling, role-based access control, and an API surface designed for features that don't exist yet.",
     tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "REST API"],
     highlights: [
-      "Production security hardening: env variables, CORS, httpOnly JWT cookies, rate limiting",
-      "End-to-end opportunity discovery flow with auth and role-based access",
-      "Clean RESTful architecture with scalability in mind",
+      "Security-first backend — httpOnly JWT cookies, CORS allowlisting, rate-limited auth, zero secrets in source",
+      "Role-based access control modeled at the schema level and enforced as middleware on every route",
+      "Modular REST architecture engineered to absorb new opportunity types and scale without rewrites",
     ],
     github: "https://github.com/AgrimVerma11",
     featured: true,
@@ -49,8 +49,8 @@ export const projects: Project[] = [
       approach: {
         heading: "The Approach",
         body: [
-          "I designed Opportunity Quest as a single source of truth: a platform where opportunities are posted with structured metadata (type, deadline, eligibility), and students browse with real filters instead of scroll-and-pray.",
-          "From day one I treated it as a production system rather than a class project. That meant designing the data model before writing routes, planning role-based access (students vs. posters/admins) up front, and treating security as part of the architecture rather than a final-week patch.",
+          "I designed Opportunity Quest as a single source of truth: a platform where opportunities carry structured metadata — type, deadline, eligibility — and students query with real filters instead of scroll-and-pray. The system was designed before the code: entity relationships, the route map, and the auth flows all existed on paper first.",
+          "From day one I treated it as a production system, not a college project. The data model was locked before the first route was written, role-based access (students vs. posters vs. admins) was planned into the schema up front, and security was part of the architecture — threat-modeled around the auth surface — rather than a final-week patch.",
         ],
       },
       solution: {
@@ -63,8 +63,8 @@ export const projects: Project[] = [
       outcome: {
         heading: "The Outcome",
         body: [
-          "A deployable, security-hardened platform that demonstrates the full lifecycle: schema design, API architecture, auth, and frontend state — plus the production concerns (rate limiting, cookie security, CORS policy) that separate a demo from a system.",
-          "The codebase is structured so the next features — notifications, saved searches, posting workflows — slot into existing patterns instead of requiring rewrites.",
+          "A deployable, security-hardened platform that covers the full engineering lifecycle solo: schema design, API architecture, auth, and frontend state — plus the production concerns (rate limiting, cookie security, CORS policy) that separate a demo from a system. It's the kind of infrastructure campuses usually buy, built from a gap I noticed and refused to ignore.",
+          "The codebase is structured so the next features — notifications, saved searches, posting workflows — slot into existing patterns instead of requiring rewrites. That's deliberate: the platform was engineered for the roadmap, not just the demo.",
         ],
       },
       decisions: [

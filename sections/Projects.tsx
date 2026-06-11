@@ -18,7 +18,7 @@ function FeaturedProject() {
           <div className="grid gap-10 rounded-2xl bg-bg-secondary p-8 sm:p-10 lg:grid-cols-2">
             <div className="flex flex-col justify-center">
               <p className="mb-2 font-mono text-xs tracking-widest text-accent-warm">
-                FEATURED PROJECT
+                FLAGSHIP PROJECT · SOLO BUILD
               </p>
               <h3 className="font-display text-3xl font-semibold text-text-primary sm:text-4xl">
                 {project.title}
