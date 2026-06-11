@@ -8,7 +8,7 @@ export const site = {
   github: "https://github.com/AgrimVerma11",
   githubHandle: "AgrimVerma11",
   substack: "https://agrimverma.substack.com",
-  linkedin: "https://www.linkedin.com/in/agrim-verma", // placeholder — update with real profile
+  linkedin: "https://www.linkedin.com/in/agrimverma11/",
 } as const;
 
 export const navLinks = [

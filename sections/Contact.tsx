@@ -105,7 +105,7 @@ export default function Contact() {
                     type="text"
                     required
                     autoComplete="name"
-                    placeholder="Ada Lovelace"
+                    placeholder="Stephen Hawking"
                     className={inputClasses}
                   />
                 </div>
@@ -119,7 +119,7 @@ export default function Contact() {
                     type="email"
                     required
                     autoComplete="email"
-                    placeholder="ada@analytical.engine"
+                    placeholder="stephen@quantum.physicist"
                     className={inputClasses}
                   />
                 </div>

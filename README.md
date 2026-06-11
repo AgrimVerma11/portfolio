@@ -54,7 +54,6 @@ Nothing else to wire up.
 
 ## Notes to self
 
-- [ ] swap in the real LinkedIn URL in `lib/site.ts`
 - [ ] point `lib/projects.ts` at the Opportunity Quest repo + live URL once deployed
 - [ ] add `public/portrait.png` (bg-removed side profile, ≥1500px tall) — the interlude section picks it up at build time
 - [ ] set up Formspree before going live
