@@ -74,7 +74,7 @@ const ENTRIES: {
       {
         src: "/events/sathack-mentoring.jpg",
         alt: "Agrim mentoring participating teams during the hackathon",
-        aspect: "aspect-[6/5]",
+        aspect: "aspect-[3/2]",
       },
     ],
   },
