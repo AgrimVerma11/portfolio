@@ -1,0 +1,73 @@
+"use client";
+
+import { FiArrowUpRight } from "react-icons/fi";
+import SectionHeader from "@/components/SectionHeader";
+import Reveal from "@/components/Reveal";
+import { site } from "@/lib/site";
+
+const POSTS = [
+  {
+    category: "Philosophy",
+    title: "The Craftsman and the Compiler",
+    excerpt:
+      "What a woodworker's respect for grain teaches about writing functions meant to last.",
+  },
+  {
+    category: "Mysticism",
+    title: "Stillness and Stack Traces",
+    excerpt:
+      "Debugging as contemplative practice — what the mind does when the program won't run.",
+  },
+];
+
+export default function Writing() {
+  return (
+    <section id="writing" className="relative mx-auto max-w-6xl px-6 py-24 sm:py-28">
+      <SectionHeader label="writing" title="Beyond the Code" />
+      <Reveal delay={0.1}>
+        <p className="mt-4 max-w-md font-serif text-lg italic text-text-secondary">
+          Occasionally, I write about philosophy, mysticism, and the things that
+          don&apos;t compile.
+        </p>
+      </Reveal>
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        {POSTS.map((post, i) => (
+          <Reveal key={post.title} delay={0.1 + i * 0.1}>
+            <a
+              href={site.substack}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block h-full rounded-xl border border-white/5 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
+            >
+              <span className="font-mono text-xs tracking-widest text-accent-warm">
+                {post.category.toUpperCase()}
+              </span>
+              <h3 className="mt-3 font-display text-xl font-semibold text-text-primary">
+                {post.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                {post.excerpt}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-text-secondary transition-colors duration-300 group-hover:text-accent-warm">
+                Read on Substack
+                <FiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </span>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={0.25} className="mt-10">
+        <a
+          href={site.substack}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-mono text-sm text-text-secondary transition-colors duration-300 hover:text-accent-warm"
+        >
+          Read all posts on Substack <FiArrowUpRight />
+        </a>
+      </Reveal>
+    </section>
+  );
+}
