@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useLenis } from "lenis/react";
@@ -15,6 +16,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const lenis = useLenis();
   const reduce = useReducedMotion();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -23,8 +25,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll-spy: highlight the nav link for the section currently in view
+  // Scroll-spy: highlight the nav link for the section currently in view.
+  // Re-attached on every route change — the Navbar outlives the page, so a
+  // mount-only observer would keep watching unmounted sections and freeze
+  // the highlight on whatever was active when the user left the homepage.
   useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
     const sections = navLinks
       .map((l) => document.querySelector(l.href))
       .filter(Boolean) as Element[];
@@ -40,7 +49,7 @@ export default function Navbar() {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   // Lock body scroll while the mobile overlay is open
   useEffect(() => {
@@ -52,6 +61,7 @@ export default function Navbar() {
 
   const goTo = (href: string) => (e: React.MouseEvent) => {
     setOpen(false);
+    if (href.startsWith("#")) setActiveSection(href);
     if (href.startsWith("#") && window.location.pathname === "/") {
       e.preventDefault();
       if (lenis) lenis.scrollTo(href, { offset: -80 });
