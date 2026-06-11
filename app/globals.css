@@ -3,25 +3,142 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #080810;
+  --bg-secondary: #0e0e1a;
+  --bg-surface: #14141f;
+  --accent-primary: #6c63ff;
+  --accent-warm: #e8a87c;
+  --accent-cyan: #00d4ff;
+  --text-primary: #f0eef8;
+  --text-secondary: #8a8aa0;
+  --text-muted: #3a3a52;
+  --gradient-hero: linear-gradient(135deg, #6c63ff 0%, #00d4ff 50%, #e8a87c 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(108, 99, 255, 0.35);
+  color: var(--text-primary);
+}
+
+/* Thin, unobtrusive scrollbar that matches the palette */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #232338;
+  border-radius: 8px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #32324e;
+}
+
+/* Native cursor is hidden only when the custom cursor has mounted on a
+   fine-pointer device; touch devices and reduced-motion keep the default. */
+@media (pointer: fine) {
+  body[data-custom-cursor="true"],
+  body[data-custom-cursor="true"] a,
+  body[data-custom-cursor="true"] button,
+  body[data-custom-cursor="true"] input,
+  body[data-custom-cursor="true"] textarea,
+  body[data-custom-cursor="true"] [role="button"] {
+    cursor: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Anchor jumps land below the fixed navbar */
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-vc {
+    background: linear-gradient(120deg, #6c63ff 10%, #00d4ff 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: rgba(8, 8, 16, 0.65);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+
+  /* Film-grain overlay via inline SVG noise — adds texture without a network request */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .gradient-border {
+    position: relative;
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(108, 99, 255, 0.5),
+      rgba(0, 212, 255, 0.15) 50%,
+      rgba(232, 168, 124, 0.35)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
