@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
@@ -9,6 +11,10 @@ import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  // Timeline photos activate as their files land in public/events
+  const eventsDir = path.join(process.cwd(), "public", "events");
+  const eventPhotos = fs.existsSync(eventsDir) ? fs.readdirSync(eventsDir) : [];
+
   return (
     <>
       <main>
@@ -16,7 +22,7 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
-        <Timeline />
+        <Timeline availablePhotos={eventPhotos} />
         <Interlude />
         <Writing />
         <Contact />

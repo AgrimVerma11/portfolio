@@ -8,7 +8,23 @@ import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
 import GdgLogo from "@/components/GdgLogo";
 
-const ENTRIES = [
+type EntryPhoto = {
+  src: string;
+  alt: string;
+  /** object-position to keep faces in frame across crops */
+  position?: string;
+  /** aspect class override — matched to the photo's native ratio so it shows uncropped */
+  aspect?: string;
+};
+
+const ENTRIES: {
+  year: string;
+  title: string;
+  description: string;
+  ongoing?: boolean;
+  gdg?: boolean;
+  photos?: EntryPhoto[];
+}[] = [
   {
     year: "2026",
     title: "Final Year @ TIET",
@@ -21,6 +37,18 @@ const ENTRIES = [
     description:
       "Organised the BuildSpace case competition at TIET, Patiala and sat on the judging panel for the final evaluation — 110+ teams from colleges across north and central India.",
     gdg: true,
+    photos: [
+      {
+        src: "/events/buildspace-judging.jpg",
+        alt: "Agrim on the BuildSpace judging panel during final evaluation",
+        position: "50% 45%",
+      },
+      {
+        src: "/events/buildspace-closeup.jpg",
+        alt: "Agrim listening to a team's pitch at BuildSpace",
+        position: "50% 28%",
+      },
+    ],
   },
   {
     year: "Feb 2026",
@@ -28,6 +56,13 @@ const ENTRIES = [
     description:
       "Organised an interactive session with industry experts — Varun Singla (Gate Smashers), Raghav Chopra (Founder, Unstop), and more — at TIET, Patiala.",
     gdg: true,
+    photos: [
+      {
+        src: "/events/beyond-the-code.jpg",
+        alt: "Agrim with Varun Singla of Gate Smashers at Beyond the Code",
+        aspect: "aspect-[3/4]",
+      },
+    ],
   },
   {
     year: "Nov 2025",
@@ -35,6 +70,13 @@ const ENTRIES = [
     description:
       "Organised SATHACK in collaboration with Saturnalia, TIET's annual fest, and mentored teams participating from across India.",
     gdg: true,
+    photos: [
+      {
+        src: "/events/sathack-mentoring.jpg",
+        alt: "Agrim mentoring participating teams during the hackathon",
+        aspect: "aspect-[6/5]",
+      },
+    ],
   },
   {
     year: "Nov 2025",
@@ -46,10 +88,7 @@ const ENTRIES = [
       {
         src: "/events/devfest-speaking.jpg",
         alt: "Agrim teaching supervised learning at the DevFest AI/ML bootcamp",
-      },
-      {
-        src: "/events/devfest-stage.jpg",
-        alt: "Agrim on stage at DevFest Thapar 2025, in front of the GDG letters",
+        aspect: "aspect-[3/4]",
       },
     ],
   },
@@ -72,6 +111,13 @@ const ENTRIES = [
     description:
       "Joined as a Core Team Member and led a 5-day ML workshop — 90+ participants, capped with a hands-on OCR project. Also stepped up as Head of the Editorial Board at SPIC MACAY TIET.",
     gdg: true,
+    photos: [
+      {
+        src: "/events/ml-workshop.jpg",
+        alt: "Agrim teaching Python fundamentals during the 5-day ML workshop",
+        aspect: "aspect-[3/4]",
+      },
+    ],
   },
   {
     year: "2023",
@@ -81,7 +127,12 @@ const ENTRIES = [
   },
 ];
 
-export default function Timeline() {
+type TimelineProps = {
+  /** filenames present in public/events — photos render only once their file exists */
+  availablePhotos?: string[];
+};
+
+export default function Timeline({ availablePhotos = [] }: TimelineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
 
@@ -171,24 +222,45 @@ export default function Timeline() {
                       <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
                         {entry.description}
                       </p>
-                      {entry.photos && (
-                        <div className="mt-4 grid grid-cols-2 gap-2">
-                          {entry.photos.map((photo) => (
-                            <div
-                              key={photo.src}
-                              className="relative aspect-[3/4] overflow-hidden rounded-lg border border-white/5"
-                            >
-                              <Image
-                                src={photo.src}
-                                alt={photo.alt}
-                                fill
-                                sizes="(min-width: 768px) 220px, 40vw"
-                                className="object-cover transition-transform duration-500 hover:scale-105"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                      {(() => {
+                        const photos = entry.photos?.filter((p) =>
+                          availablePhotos.includes(p.src.split("/").pop() ?? "")
+                        );
+                        if (!photos || photos.length === 0) return null;
+                        const pair = photos.length > 1;
+                        return (
+                          <div
+                            className={`mt-4 grid gap-2 ${pair ? "grid-cols-2" : "grid-cols-1"}`}
+                          >
+                            {photos.map((photo) => (
+                              <div
+                                key={photo.src}
+                                className={`group/photo relative overflow-hidden rounded-lg border border-white/5 ${
+                                  photo.aspect ?? (pair ? "aspect-square" : "aspect-[16/10]")
+                                }`}
+                              >
+                                <Image
+                                  src={photo.src}
+                                  alt={photo.alt}
+                                  fill
+                                  sizes={
+                                    pair
+                                      ? "(min-width: 768px) 220px, 40vw"
+                                      : "(min-width: 768px) 440px, 80vw"
+                                  }
+                                  style={{ objectPosition: photo.position ?? "50% 50%" }}
+                                  className="object-cover saturate-[.85] brightness-[.92] transition-all duration-500 group-hover/photo:scale-[1.03] group-hover/photo:brightness-100 group-hover/photo:saturate-100"
+                                />
+                                {/* fade the photo into the card so it doesn't sit on top of the dark UI */}
+                                <div
+                                  aria-hidden
+                                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg-secondary/45 via-transparent to-bg-secondary/10"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        );
+                      })()}
                     </article>
                   </Reveal>
                 </div>

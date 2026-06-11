@@ -17,7 +17,7 @@ const TERMINAL_LINES = [
 ];
 
 const STATS = [
-  { value: "3+", label: "Projects" },
+  { value: "5+", label: "Projects" },
   { value: "GDG", label: "AI/ML Mentor", gdg: true },
   { value: "'27", label: "TIET" },
 ];
