@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "Role-based access control modeled at the schema level and enforced as middleware on every route",
       "Modular REST architecture engineered to absorb new opportunity types and scale without rewrites",
     ],
-    github: "https://github.com/AgrimVerma11",
+    github: "https://github.com/AgrimVerma11/OpportunityQuest",
     featured: true,
     story: {
       problem: {
