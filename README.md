@@ -2,6 +2,8 @@
 
 Source for my personal site — [github.com/AgrimVerma11](https://github.com/AgrimVerma11).
 
+**Live:** [agrimverma.dev](https://agrimverma.dev)
+
 ## Stack
 
 - Next.js 14 (App Router) + TypeScript
