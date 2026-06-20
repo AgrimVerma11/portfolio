@@ -7,6 +7,13 @@ import { site } from "@/lib/site";
 
 const POSTS = [
   {
+    category: "Reflection · Relationships",
+    title: "तकल्लुफ़ — Not Everyone Who Stays, Stays",
+    excerpt:
+      "On false warmth, folding ears, and the ones who were never really there.",
+    href: "https://agrimverma.substack.com/p/not-everyone-who-stays-stays",
+  },
+  {
     category: "Mysticism · Philosophy",
     title: "The Unknown, Unknowns",
     excerpt:
@@ -32,14 +39,14 @@ export default function Writing() {
         </p>
       </Reveal>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {POSTS.map((post, i) => (
-          <Reveal key={post.title} delay={0.1 + i * 0.1}>
+          <Reveal key={post.title} delay={0.1 + i * 0.1} className="h-full">
             <a
               href={post.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block h-full rounded-xl border border-white/5 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
+              className="group flex h-full flex-col rounded-xl border border-white/5 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
             >
               <span className="font-mono text-xs tracking-widest text-accent-warm">
                 {post.category.toUpperCase()}
@@ -50,7 +57,7 @@ export default function Writing() {
               <p className="mt-2 text-sm leading-relaxed text-text-secondary">
                 {post.excerpt}
               </p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-text-secondary transition-colors duration-300 group-hover:text-accent-warm">
+              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm text-text-secondary transition-colors duration-300 group-hover:text-accent-warm">
                 Read on Substack
                 <FiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </span>
