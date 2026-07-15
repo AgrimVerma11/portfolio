@@ -6,7 +6,6 @@ export default function Logo({ className = "h-8 w-8" }: { className?: string }) 
       fill="none"
       className={className}
       aria-hidden="true"
-      role="img"
     >
       <defs>
         <linearGradient id="av-grad" x1="0" y1="0" x2="40" y2="40">
