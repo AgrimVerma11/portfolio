@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     "TIET",
     "MERN",
     "Next.js",
+    "Firasa",
     "portfolio",
   ],
   authors: [{ name: site.name, url: site.url }],

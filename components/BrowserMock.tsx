@@ -1,5 +1,10 @@
+type BrowserMockProps = {
+  /** label shown in the mock address bar */
+  url: string;
+};
+
 /** Abstract wireframe of the app inside browser chrome – no fake screenshot needed. */
-export default function BrowserMock() {
+export default function BrowserMock({ url }: BrowserMockProps) {
   return (
     <div
       className="w-full overflow-hidden rounded-xl border border-white/10 bg-bg-primary shadow-2xl"
@@ -10,7 +15,7 @@ export default function BrowserMock() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
         <span className="ml-3 flex-1 rounded-md bg-bg-primary px-3 py-1 font-mono text-[10px] text-text-muted">
-          opportunity-quest.app
+          {url}
         </span>
       </div>
       <div className="flex gap-3 p-4">

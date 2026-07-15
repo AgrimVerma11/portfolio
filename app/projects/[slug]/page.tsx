@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FiArrowLeft, FiArrowUpRight, FiGithub } from "react-icons/fi";
@@ -101,7 +102,21 @@ export default function ProjectPage({ params }: Props) {
         </header>
 
         <Reveal delay={0.25} className="mt-14">
-          <BrowserMock />
+          {project.logo ? (
+            <div className="flex w-full items-center justify-center rounded-xl border border-white/10 bg-white p-12 shadow-2xl sm:p-16">
+              <Image
+                src={project.logo}
+                alt={`${project.title} logo`}
+                width={280}
+                height={280}
+                className="h-auto w-full max-w-[240px]"
+              />
+            </div>
+          ) : (
+            <BrowserMock
+              url={project.live ? project.live.replace(/^https?:\/\//, "") : `${project.slug}.app`}
+            />
+          )}
         </Reveal>
 
         {/* Problem → Approach → Solution → Outcome */}

@@ -12,6 +12,8 @@ export type Project = {
   highlights: string[];
   github: string;
   live?: string;
+  /** path under /public to a real logo/brand mark, shown instead of the generic browser mock */
+  logo?: string;
   featured: boolean;
   story: {
     problem: StorySection;
@@ -23,6 +25,76 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "firasa",
+    title: "Firasa",
+    tagline:
+      "Academic risk intelligence that identifies at-risk students before they fall through the cracks.",
+    description:
+      "An end-to-end ML platform that clusters students into behavioral learning profiles and generates explainable, personalized interventions. Built on a Flask and React stack, deployed live on Render and Vercel, with real users across institutions globally. Powered by SHAP and LIME for interpretable recommendations, not black-box predictions.",
+    tech: ["Python", "Flask", "React", "SHAP", "LIME", "Scikit-learn", "Render", "Vercel"],
+    highlights: [
+      "Live deployment with active users across the globe",
+      "Behavioral clustering and explainable AI (SHAP/LIME) for interpretable academic interventions",
+      "End-to-end ownership: ML pipeline, REST API, React frontend, and cloud deployment",
+    ],
+    github: "https://github.com/AgrimVerma11/Firasa",
+    live: "https://firasa.agrimverma.dev",
+    logo: "/projects/firasa-logo.jpg",
+    featured: true,
+    story: {
+      problem: {
+        heading: "The Problem",
+        body: [
+          "Most academic risk systems are reactive: a student is flagged only after grades slip or attendance drops, by which point the intervention window has mostly closed.",
+          "There was no widely accessible tool that read behavioral signals early, explained its reasoning, and surfaced guidance an educator or student could actually act on. A prediction without an explanation does not change behavior; it just adds another number to ignore.",
+        ],
+      },
+      approach: {
+        heading: "The Approach",
+        body: [
+          "Firasa clusters students into behavioral learning profiles using unsupervised machine learning, working from proxies that are available before failure ever shows up on a transcript: engagement patterns, submission timing, and resource access.",
+          "The pipeline moves data input through feature engineering, into clustering, then through a SHAP and LIME explanation layer, before serving results through a Flask REST API to a React frontend. Every stage exists so the final recommendation can be traced back to the behavior that produced it.",
+        ],
+      },
+      solution: {
+        heading: "What Makes It Different",
+        body: [
+          "Firasa is explainability-first by design. SHAP and LIME turn cluster membership into a reasoned account of why a student was grouped the way they were, so the output reads as a conversation starter for an educator, not a verdict.",
+          "The name is a deliberate nod to that idea: Firasa is an 11th-century Arabic concept describing the ability to read a person's inner state from outward signs, which is exactly what the system does with behavioral data instead of intuition.",
+        ],
+      },
+      outcome: {
+        heading: "The Outcome",
+        body: [
+          "Firasa is deployed and in active use, with real users across institutions globally: a Flask API on Render, a React frontend on Vercel, and a Python ML pipeline connecting them.",
+          "It was also built as part of Agrim's ML coursework evaluation, where it was recognized for the same explainability-first approach that defines the live product.",
+        ],
+      },
+      decisions: [
+        {
+          title: "Unsupervised clustering over supervised classification",
+          detail:
+            "Labeled 'at-risk' outcomes are scarce and biased toward whoever already got flagged. Clustering on behavioral proxies surfaces profiles without needing historical failure labels, and generalizes across student populations a supervised model wouldn't.",
+        },
+        {
+          title: "SHAP and LIME over an opaque risk score",
+          detail:
+            "A number alone tells an educator nothing about what to do next. Layering SHAP for global feature importance with LIME for per-student explanations turns each recommendation into something a human can question and act on.",
+        },
+        {
+          title: "Flask as the inference layer",
+          detail:
+            "The ML pipeline is Python end to end, so a Flask REST API kept the model, the explanation layer, and the serving logic in one language without a translation layer between training and inference.",
+        },
+        {
+          title: "Render and Vercel over a single host",
+          detail:
+            "Splitting the Flask API onto Render and the React frontend onto Vercel let each half deploy on infrastructure suited to it, backend workloads on Render and static/edge-rendered frontend on Vercel, without provisioning a server directly.",
+        },
+      ],
+    },
+  },
   {
     slug: "opportunity-quest",
     title: "Opportunity Quest",
@@ -37,7 +109,7 @@ export const projects: Project[] = [
       "Modular REST architecture engineered to absorb new opportunity types and scale without rewrites",
     ],
     github: "https://github.com/AgrimVerma11/OpportunityQuest",
-    featured: true,
+    featured: false,
     story: {
       problem: {
         heading: "The Observation",
