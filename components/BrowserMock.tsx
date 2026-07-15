@@ -1,4 +1,4 @@
-/** Abstract wireframe of the app inside browser chrome — no fake screenshot needed. */
+/** Abstract wireframe of the app inside browser chrome – no fake screenshot needed. */
 export default function BrowserMock() {
   return (
     <div

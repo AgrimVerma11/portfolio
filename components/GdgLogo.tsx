@@ -1,4 +1,4 @@
-/** Google Developer Groups bracket mark — the four Google colors, rounded strokes. */
+/** Google Developer Groups bracket mark – the four Google colors, rounded strokes. */
 export default function GdgLogo({ className = "h-4 w-8" }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 24" fill="none" className={className} aria-hidden="true" role="img">

@@ -7,7 +7,7 @@ import GdgLogo from "@/components/GdgLogo";
 
 const TERMINAL_LINES = [
   { prompt: true, text: "whoami" },
-  { prompt: false, text: "agrim — engineer, mentor, occasional writer" },
+  { prompt: false, text: "agrim – engineer, mentor, occasional writer" },
   { prompt: true, text: "cat ./focus.txt" },
   { prompt: false, text: "full-stack systems · ML pipelines · DSA" },
   { prompt: true, text: "ls ./roles" },
@@ -35,7 +35,7 @@ export default function About() {
   return (
     <section id="about" className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
       <div className="grid items-center gap-14 lg:grid-cols-5">
-        {/* Left — 60% */}
+        {/* Left – 60% */}
         <div className="lg:col-span-3">
           <p className="mb-3 font-mono text-sm tracking-wider text-accent-primary/80">
             <span className="text-text-muted">{"//"}</span> about me
@@ -56,7 +56,7 @@ export default function About() {
 
           <Reveal delay={0.1}>
             <p className="mb-5 max-w-xl leading-relaxed text-text-secondary">
-              I&apos;m Agrim — a final-year Computer Engineering student at TIET,
+              I&apos;m Agrim, a final-year Computer Engineering student at TIET,
               building things at the intersection of full-stack web and machine
               learning. I believe good software is like good writing:{" "}
               <em className="font-serif text-lg italic text-accent-warm">
@@ -69,7 +69,7 @@ export default function About() {
               <span className="whitespace-nowrap">
                 <GdgLogo className="mx-0.5 inline-block h-3 w-6 align-baseline" />
               </span>{" "}
-              Google Developer Groups, TIET. Outside the terminal, I write —
+              Google Developer Groups, TIET. Outside the terminal, I write:
               philosophy, mysticism, and whatever the soul insists on.
             </p>
           </Reveal>
@@ -94,7 +94,7 @@ export default function About() {
           </Reveal>
         </div>
 
-        {/* Right — 40%: terminal card with orbiting badges */}
+        {/* Right – 40%: terminal card with orbiting badges */}
         <div className="relative lg:col-span-2">
           <Reveal delay={0.2}>
             <div className="gradient-border relative rounded-2xl p-px">

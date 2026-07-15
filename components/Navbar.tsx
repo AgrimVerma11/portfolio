@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   // Scroll-spy: highlight the nav link for the section currently in view.
-  // Re-attached on every route change — the Navbar outlives the page, so a
+  // Re-attached on every route change – the Navbar outlives the page, so a
   // mount-only observer would keep watching unmounted sections and freeze
   // the highlight on whatever was active when the user left the homepage.
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function Navbar() {
           href="/#hero"
           onClick={goTo("#hero")}
           className="flex items-center gap-2"
-          aria-label="Agrim Verma — home"
+          aria-label="Agrim Verma – home"
         >
           <Logo />
         </Link>

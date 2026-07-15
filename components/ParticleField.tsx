@@ -72,7 +72,7 @@ function Particles({ animate }: { animate: boolean }) {
     const p = points.current;
     // perpetual slow drift
     p.rotation.y += delta * 0.02;
-    // cursor parallax — a few percent of influence, eased in
+    // cursor parallax – a few percent of influence, eased in
     p.rotation.x = THREE.MathUtils.lerp(p.rotation.x, mouse.current.y * 0.06, 0.025);
     p.rotation.z = THREE.MathUtils.lerp(p.rotation.z, mouse.current.x * 0.04, 0.025);
     // breathing: barely perceptible scale oscillation

@@ -92,7 +92,7 @@ export default function Skills() {
           <span className="text-accent-primary"> /&gt;</span>
         </h2>
         <p className="mt-4 max-w-lg text-text-secondary">
-          The constellation I navigate by — grouped by orbit, sized by hours logged.
+          The constellation I navigate by – grouped by orbit, sized by hours logged.
         </p>
       </Reveal>
 

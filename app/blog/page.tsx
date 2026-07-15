@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Essays on philosophy, mysticism, and the things that don't compile — by Agrim Verma.",
+    "Essays on philosophy, mysticism, and the things that don't compile – by Agrim Verma.",
 };
 
 export default function BlogIndex() {
@@ -37,7 +37,7 @@ export default function BlogIndex() {
           <Reveal delay={0.3} className="mt-20">
             <div className="rounded-2xl border border-dashed border-white/10 bg-bg-secondary/40 p-12 text-center">
               <p className="font-mono text-sm text-text-secondary">
-                No posts yet — writing happens when the thoughts are ready.
+                No posts yet – writing happens when the thoughts are ready.
               </p>
               <a
                 href={site.substack}

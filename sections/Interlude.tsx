@@ -10,7 +10,7 @@ const PORTRAIT_PATH = path.join(process.cwd(), "public", "portrait.png");
  * side-profile portrait dissolving into the dark, beside a single thought.
  *
  * Renders nothing until `public/portrait.png` exists (background-removed,
- * side profile facing right) — checked at build time, so adding the file
+ * side profile facing right) – checked at build time, so adding the file
  * and rebuilding is all it takes.
  */
 export default function Interlude() {
@@ -19,7 +19,7 @@ export default function Interlude() {
   return (
     <section className="grain relative overflow-hidden py-12 sm:py-16" aria-label="Interlude">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
-        {/* Portrait — melts into the background, lit by the palette */}
+        {/* Portrait – melts into the background, lit by the palette */}
         <Reveal>
           <div className="relative mx-auto w-full max-w-sm">
             <div
@@ -35,7 +35,7 @@ export default function Interlude() {
             >
               <Image
                 src="/portrait.png"
-                alt="Agrim Verma — side profile, deep in thought"
+                alt="Agrim Verma – side profile, deep in thought"
                 fill
                 sizes="(min-width: 1024px) 384px, 70vw"
                 className="object-contain object-bottom drop-shadow-[0_0_50px_rgba(108,99,255,0.22)]"
@@ -53,7 +53,7 @@ export default function Interlude() {
         <Reveal delay={0.15}>
           <blockquote>
             <p className="max-w-md font-serif text-3xl italic leading-snug text-text-primary sm:text-4xl">
-              &ldquo;The best systems are quiet — they hold complexity the way
+              &ldquo;The best systems are quiet: they hold complexity the way
               still water holds the sky.&rdquo;
             </p>
             <footer className="mt-7 font-mono text-sm text-text-secondary">

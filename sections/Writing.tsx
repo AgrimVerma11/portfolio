@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 const POSTS = [
   {
     category: "Reflection · Relationships",
-    title: "तकल्लुफ़ — Not Everyone Who Stays, Stays",
+    title: "तकल्लुफ़ – Not Everyone Who Stays, Stays",
     excerpt:
       "On false warmth, folding ears, and the ones who were never really there.",
     href: "https://agrimverma.substack.com/p/not-everyone-who-stays-stays",
@@ -17,13 +17,13 @@ const POSTS = [
     category: "Mysticism · Philosophy",
     title: "The Unknown, Unknowns",
     excerpt:
-      "Alpajña — on the grace of not knowing, and the roads we couldn't have planned.",
+      "Alpajña: on the grace of not knowing, and the roads we couldn't have planned.",
     href: "https://agrimverma.substack.com/p/the-unknown-unknowns",
   },
   {
     category: "The Genesis",
     title: "Chronicles of this Soul",
-    excerpt: "The first entry — where this Substack, and the writing, begins.",
+    excerpt: "The first entry, where this Substack, and the writing, begins.",
     href: "https://agrimverma.substack.com/p/chronicles-of-this-soul",
   },
 ];

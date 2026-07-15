@@ -1,6 +1,6 @@
 export const site = {
   name: "Agrim Verma",
-  title: "Agrim Verma — Full Stack Engineer & ML Developer",
+  title: "Agrim Verma | Full Stack & ML Engineer",
   description:
     "Final-year Computer Engineering student at TIET building at the intersection of full-stack web and machine learning. AI/ML Mentor at Google Developer Groups TIET, open-source contributor, occasional writer.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",

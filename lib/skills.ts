@@ -112,7 +112,7 @@ export const skillClusters: SkillCluster[] = [
   },
 ];
 
-/** Faint lines between cluster hubs — the constellation's larger structure */
+/** Faint lines between cluster hubs – the constellation's larger structure */
 export const interClusterLinks: [number, number][] = [
   [0, 1], // Frontend ↔ Backend
   [1, 2], // Backend ↔ ML

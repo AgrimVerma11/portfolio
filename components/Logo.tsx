@@ -15,7 +15,7 @@ export default function Logo({ className = "h-8 w-8" }: { className?: string }) 
           <stop offset="100%" stopColor="#E8A87C" />
         </linearGradient>
       </defs>
-      {/* A — open apex, crossbar doubles as the V's entry stroke */}
+      {/* A – open apex, crossbar doubles as the V's entry stroke */}
       <path
         d="M6 32L15 8h2l8 24"
         stroke="url(#av-grad)"
@@ -29,7 +29,7 @@ export default function Logo({ className = "h-8 w-8" }: { className?: string }) 
         strokeWidth="2.4"
         strokeLinecap="round"
       />
-      {/* V — shares the A's descending stroke rhythm */}
+      {/* V – shares the A's descending stroke rhythm */}
       <path
         d="M23 8l6.5 24L36 8"
         stroke="url(#av-grad)"

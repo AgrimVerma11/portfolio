@@ -53,7 +53,7 @@ export default function Contact() {
     // No Formspree ID configured → graceful mailto fallback
     if (!FORMSPREE_ID) {
       const subject = encodeURIComponent(`Portfolio contact from ${data.get("name")}`);
-      const body = encodeURIComponent(`${data.get("message")}\n\n— ${data.get("name")} (${data.get("email")})`);
+      const body = encodeURIComponent(`${data.get("message")}\n\nFrom ${data.get("name")} (${data.get("email")})`);
       window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
       return;
     }
@@ -149,7 +149,7 @@ export default function Contact() {
               </Magnetic>
               <p aria-live="polite" className="min-h-5 font-mono text-xs">
                 {status === "sent" && (
-                  <span className="text-accent-cyan">Message sent — I&apos;ll get back to you soon.</span>
+                  <span className="text-accent-cyan">Message sent. I&apos;ll get back to you soon.</span>
                 )}
                 {status === "error" && (
                   <span className="text-accent-warm">

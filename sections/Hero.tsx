@@ -108,7 +108,7 @@ export default function Hero() {
 
         <GradientName />
 
-        {/* typewriter — fixed height prevents layout shift between phrases */}
+        {/* typewriter – fixed height prevents layout shift between phrases */}
         <div className="mt-8 flex h-8 items-center justify-center">
           <p className="font-mono text-base text-text-secondary sm:text-lg">
             {typed}

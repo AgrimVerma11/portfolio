@@ -50,7 +50,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* glowing core dot — tracks the pointer 1:1 */}
+      {/* glowing core dot – tracks the pointer 1:1 */}
       <motion.div
         aria-hidden
         className="pointer-events-none fixed left-0 top-0 z-[9999] h-1.5 w-1.5 rounded-full bg-accent-cyan"
@@ -64,7 +64,7 @@ export default function CustomCursor() {
         animate={{ scale: hovering ? 0.5 : 1 }}
         transition={{ duration: 0.2 }}
       />
-      {/* trailing ring — morphs on interactive targets */}
+      {/* trailing ring – morphs on interactive targets */}
       <motion.div
         aria-hidden
         className="pointer-events-none fixed left-0 top-0 z-[9998] h-8 w-8 rounded-full border border-accent-primary/60"

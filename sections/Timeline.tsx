@@ -13,7 +13,7 @@ type EntryPhoto = {
   alt: string;
   /** object-position to keep faces in frame across crops */
   position?: string;
-  /** aspect class override — matched to the photo's native ratio so it shows uncropped */
+  /** aspect class override – matched to the photo's native ratio so it shows uncropped */
   aspect?: string;
 };
 
@@ -35,7 +35,7 @@ const ENTRIES: {
     year: "Apr 2026",
     title: "GDG BuildSpace",
     description:
-      "Organised the BuildSpace case competition at TIET, Patiala and sat on the judging panel for the final evaluation — 110+ teams from colleges across north and central India.",
+      "Organised the BuildSpace case competition at TIET, Patiala and sat on the judging panel for the final evaluation, with 110+ teams from colleges across north and central India.",
     gdg: true,
     photos: [
       {
@@ -54,7 +54,7 @@ const ENTRIES: {
     year: "Feb 2026",
     title: "“Beyond the Code”",
     description:
-      "Organised an interactive session with industry experts — Varun Singla (Gate Smashers), Raghav Chopra (Founder, Unstop), and more — at TIET, Patiala.",
+      "Organised an interactive session with industry experts – Varun Singla (Gate Smashers), Raghav Chopra (Founder, Unstop), and more – at TIET, Patiala.",
     gdg: true,
     photos: [
       {
@@ -82,7 +82,7 @@ const ENTRIES: {
     year: "Nov 2025",
     title: "GDG DevFest, TIET Patiala",
     description:
-      "Organised DevFest with 400+ attendees — designed the AI/ML bootcamp track and mentored students through it.",
+      "Organised DevFest with 400+ attendees, designed the AI/ML bootcamp track, and mentored students through it.",
     gdg: true,
     photos: [
       {
@@ -96,7 +96,7 @@ const ENTRIES: {
     year: "2025",
     title: "Opportunity Quest Begins",
     description:
-      "Noticed the gap between faculty and students — opportunities existed, but never reached the people they were meant for. Started configuring and designing Opportunity Quest.",
+      "Noticed the gap between faculty and students: opportunities existed, but never reached the people they were meant for. Started configuring and designing Opportunity Quest.",
   },
   {
     year: "2025",
@@ -109,7 +109,7 @@ const ENTRIES: {
     year: "2024",
     title: "Core Team @ GDG TIET",
     description:
-      "Joined as a Core Team Member and led a 5-day ML workshop — 90+ participants, capped with a hands-on OCR project. Also stepped up as Head of the Editorial Board at SPIC MACAY TIET.",
+      "Joined as a Core Team Member and led a 5-day ML workshop for 90+ participants, capped with a hands-on OCR project. Also stepped up as Head of the Editorial Board at SPIC MACAY TIET.",
     gdg: true,
     photos: [
       {
@@ -123,12 +123,12 @@ const ENTRIES: {
     year: "2023",
     title: "Joined TIET, COE",
     description:
-      "Computer Engineering begins — along with the Thapar Amateur Astronomers' Society and the SPIC MACAY TIET chapter.",
+      "Computer Engineering begins, along with the Thapar Amateur Astronomers' Society and the SPIC MACAY TIET chapter.",
   },
 ];
 
 type TimelineProps = {
-  /** filenames present in public/events — photos render only once their file exists */
+  /** filenames present in public/events – photos render only once their file exists */
   availablePhotos?: string[];
 };
 

@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-/** Curtain wipe on route entry — a dark panel that lifts to reveal the page. */
+/** Curtain wipe on route entry – a dark panel that lifts to reveal the page. */
 export default function Template({ children }: { children: ReactNode }) {
   const reduce = useReducedMotion();
 
