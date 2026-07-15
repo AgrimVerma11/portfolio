@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: site.title,
-    template: "%s · Agrim Verma",
+    template: "%s | Agrim Verma",
   },
   description: site.description,
   keywords: [
@@ -56,6 +56,7 @@ export const metadata: Metadata = {
     "portfolio",
   ],
   authors: [{ name: site.name, url: site.url }],
+  alternates: { canonical: site.url },
   openGraph: {
     title: site.title,
     description: site.description,

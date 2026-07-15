@@ -7,6 +7,7 @@ import SplitText from "@/components/SplitText";
 import BrowserMock from "@/components/BrowserMock";
 import Footer from "@/components/Footer";
 import { getProject, projects } from "@/lib/projects";
+import { site } from "@/lib/site";
 
 type Props = { params: { slug: string } };
 
@@ -17,10 +18,25 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const project = getProject(params.slug);
   if (!project) return {};
+  const url = `${site.url}/projects/${project.slug}`;
   return {
     title: project.title,
     description: project.tagline,
-    openGraph: { title: project.title, description: project.tagline },
+    keywords: [project.title, ...project.tech, "Agrim Verma"],
+    alternates: { canonical: url },
+    openGraph: {
+      title: project.title,
+      description: project.tagline,
+      url,
+      siteName: site.name,
+      type: "website",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.tagline,
+    },
   };
 }
 

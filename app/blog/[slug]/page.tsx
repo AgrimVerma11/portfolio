@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { FiArrowLeft } from "react-icons/fi";
 import Footer from "@/components/Footer";
 import { getAllPosts, getPost } from "@/lib/blog";
+import { site } from "@/lib/site";
 
 type Props = { params: { slug: string } };
 
@@ -15,10 +16,25 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const post = getPost(params.slug);
   if (!post) return {};
+  const url = `${site.url}/blog/${post.meta.slug}`;
   return {
     title: post.meta.title,
     description: post.meta.excerpt,
-    openGraph: { title: post.meta.title, description: post.meta.excerpt, type: "article" },
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.meta.title,
+      description: post.meta.excerpt,
+      url,
+      siteName: site.name,
+      type: "article",
+      publishedTime: post.meta.date,
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.meta.title,
+      description: post.meta.excerpt,
+    },
   };
 }
 

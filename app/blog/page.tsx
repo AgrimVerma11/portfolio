@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Writing",
   description:
     "Essays on philosophy, mysticism, and the things that don't compile – by Agrim Verma.",
+  alternates: { canonical: `${site.url}/blog` },
 };
 
 export default function BlogIndex() {
