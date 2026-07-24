@@ -186,7 +186,7 @@ export default function Navbar() {
                   <Link
                     href={`/${link.href}`}
                     onClick={goTo(link.href)}
-                    className="font-display text-3xl font-medium text-text-primary"
+                    className="font-display text-3xl font-semibold text-text-primary"
                   >
                     {link.label}
                   </Link>

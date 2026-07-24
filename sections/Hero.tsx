@@ -14,32 +14,37 @@ const PHRASES = [
   "Final Year @ TIET · AI/ML Mentor @ GDG",
 ] as const;
 
-const NAME = "Agrim Verma";
+const WORDS = ["Agrim", "Verma"];
 
-/** Letters stagger in one at a time; the ink-navy is solid, not a gradient. */
+/**
+ * Words fade and rise in, staggered. Deliberately opacity/transform only:
+ * an earlier per-character version animated filter blur on eleven separate
+ * elements, which is one of the most expensive properties to animate and
+ * was visibly janking on mid-range mobile GPUs. Two elements, two cheap
+ * properties, composited on every device.
+ */
 function AnimatedName() {
   const reduce = useReducedMotion();
-  const chars = NAME.split("");
 
   return (
     <h1
-      aria-label={NAME}
+      aria-label={WORDS.join(" ")}
       className="font-display text-6xl font-semibold text-accent-primary sm:text-8xl lg:text-[6.5rem]"
     >
-      {chars.map((char, i) => (
+      {WORDS.map((word, i) => (
         <motion.span
-          key={i}
+          key={word}
           aria-hidden
-          className="inline-block will-change-transform"
-          initial={reduce ? false : { y: "0.55em", opacity: 0, filter: "blur(12px)" }}
-          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          className={`inline-block will-change-transform ${i < WORDS.length - 1 ? "mr-[0.22em]" : ""}`}
+          initial={reduce ? false : { y: "0.3em", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{
-            delay: 0.35 + i * 0.045,
-            duration: 1,
+            delay: 0.35 + i * 0.12,
+            duration: 0.7,
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          {char === " " ? " " : char}
+          {word}
         </motion.span>
       ))}
     </h1>
