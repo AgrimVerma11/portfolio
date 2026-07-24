@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FiMail, FiGithub, FiLinkedin, FiSend } from "react-icons/fi";
+import { FiMail, FiPhone, FiGithub, FiLinkedin, FiSend, FiCopy, FiCheck } from "react-icons/fi";
 import { SiSubstack } from "react-icons/si";
 import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 
 const inputClasses =
-  "w-full rounded-lg border border-white/10 bg-bg-secondary px-4 py-3 text-sm text-text-primary placeholder:text-text-muted transition-all duration-300 focus:border-accent-primary focus:shadow-[0_0_20px_rgba(108,99,255,0.25)] focus:outline-none";
+  "w-full rounded-lg border border-black/10 bg-bg-secondary px-4 py-3 text-sm text-text-primary placeholder:text-text-muted transition-all duration-300 focus:border-accent-primary focus:shadow-[0_0_0_3px_rgba(30,58,95,0.15)] focus:outline-none";
 
 const DIRECT_LINKS = [
   {
@@ -19,6 +19,14 @@ const DIRECT_LINKS = [
     label: "Email",
     value: site.email,
     href: `mailto:${site.email}`,
+    copyValue: site.email,
+  },
+  {
+    icon: FiPhone,
+    label: "Phone",
+    value: site.phone,
+    href: `tel:${site.phoneHref}`,
+    copyValue: site.phone,
   },
   {
     icon: FiGithub,
@@ -44,6 +52,15 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  const copyToClipboard = (field: string, value: string) => async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    await navigator.clipboard.writeText(value);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField((f) => (f === field ? null : f)), 1800);
+  };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,11 +91,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="grain relative overflow-hidden bg-bg-primary">
+    <section id="contact" className="grain relative overflow-hidden bg-bg-surface">
       {/* ambient orb */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-0 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-accent-primary/10 blur-[140px] motion-safe:animate-orb-drift"
+        className="absolute left-1/2 top-0 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-accent-primary/6 blur-[140px] motion-safe:animate-orb-drift"
       />
 
       <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
@@ -141,7 +158,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="flex items-center gap-2 rounded-full bg-accent-primary px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_36px_rgba(108,99,255,0.5)] disabled:opacity-60"
+                  className="flex items-center gap-2 rounded-full bg-accent-primary px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_6px_20px_rgba(30,58,95,0.3)] disabled:opacity-60"
                 >
                   {status === "sending" ? "Sending..." : "Send Message"}
                   <FiSend />
@@ -165,15 +182,19 @@ export default function Contact() {
             <ul className="space-y-4">
               {DIRECT_LINKS.map((link) => {
                 const Icon = link.icon;
+                const copied = copiedField === link.label;
                 return (
-                  <li key={link.label}>
+                  <li
+                    key={link.label}
+                    className="group flex items-center gap-4 rounded-xl border border-black/8 bg-bg-primary px-5 py-4 transition-all duration-300 hover:border-accent-primary/30 hover:bg-white"
+                  >
                     <a
                       href={link.href}
-                      target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                      target={link.href.startsWith("mailto") || link.href.startsWith("tel") ? undefined : "_blank"}
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-4 rounded-xl border border-white/5 bg-bg-secondary/60 px-5 py-4 transition-all duration-300 hover:border-accent-primary/30 hover:bg-bg-surface"
+                      className="flex flex-1 items-center gap-4"
                     >
-                      <Icon className="h-5 w-5 text-text-secondary transition-colors duration-300 group-hover:text-accent-primary" />
+                      <Icon className="h-5 w-5 shrink-0 text-text-secondary transition-colors duration-300 group-hover:text-accent-primary" />
                       <span>
                         <span className="block font-mono text-xs text-text-muted">
                           {link.label.toUpperCase()}
@@ -181,6 +202,26 @@ export default function Contact() {
                         <span className="text-sm text-text-primary">{link.value}</span>
                       </span>
                     </a>
+                    {link.copyValue && (
+                      <button
+                        type="button"
+                        onClick={copyToClipboard(link.label, link.copyValue)}
+                        aria-label={copied ? `${link.label} copied` : `Copy ${link.label.toLowerCase()}`}
+                        className="flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 font-mono text-xs text-text-muted transition-colors duration-200 hover:bg-black/5 hover:text-accent-primary"
+                      >
+                        {copied ? (
+                          <>
+                            <FiCheck className="h-3.5 w-3.5 text-accent-cyan" />
+                            Copied
+                          </>
+                        ) : (
+                          <>
+                            <FiCopy className="h-3.5 w-3.5" />
+                            Copy
+                          </>
+                        )}
+                      </button>
+                    )}
                   </li>
                 );
               })}
