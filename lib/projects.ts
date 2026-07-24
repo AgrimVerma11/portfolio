@@ -31,10 +31,10 @@ export const projects: Project[] = [
     tagline:
       "Academic risk intelligence that identifies at-risk students before they fall through the cracks.",
     description:
-      "An end-to-end ML platform that clusters students into behavioral learning profiles and generates explainable, personalized interventions. Built on a Flask and React stack, deployed live on Render and Vercel, with real users across institutions globally. Powered by SHAP and LIME for interpretable recommendations, not black-box predictions.",
+      "An end-to-end ML platform that clusters students into behavioral learning profiles and generates explainable, personalized interventions. Built on a Flask and React stack, deployed live on Render and Vercel: 260+ organic users across 10+ countries. Powered by SHAP and LIME for interpretable recommendations, not black-box predictions.",
     tech: ["Python", "Flask", "React", "SHAP", "LIME", "Scikit-learn", "Render", "Vercel"],
     highlights: [
-      "Live deployment with active users across the globe",
+      "260+ organic users across 10+ countries",
       "Behavioral clustering and explainable AI (SHAP/LIME) for interpretable academic interventions",
       "End-to-end ownership: ML pipeline, REST API, React frontend, and cloud deployment",
     ],
@@ -67,7 +67,7 @@ export const projects: Project[] = [
       outcome: {
         heading: "The Outcome",
         body: [
-          "Firasa is deployed and in active use, with real users across institutions globally: a Flask API on Render, a React frontend on Vercel, and a Python ML pipeline connecting them.",
+          "Firasa is deployed and in active use: 260+ organic users across 10+ countries, running on a Flask API on Render, a React frontend on Vercel, and a Python ML pipeline connecting them.",
           "It was also built as part of Agrim's ML coursework evaluation, where it was recognized for the same explainability-first approach that defines the live product.",
         ],
       },

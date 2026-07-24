@@ -18,7 +18,7 @@ function mockUrl(project: Project) {
 function ProjectVisual({ project }: { project: Project }) {
   if (project.logo) {
     return (
-      <div className="flex w-full items-center justify-center rounded-xl border border-white/10 bg-white p-10 shadow-2xl sm:p-14">
+      <div className="flex w-full items-center justify-center rounded-xl border border-black/10 bg-white p-10 shadow-lg sm:p-14">
         <Image
           src={project.logo}
           alt={`${project.title} logo`}
@@ -36,7 +36,7 @@ function FeaturedProject({ project }: { project: Project }) {
   return (
     <Reveal>
       <TiltCard max={4}>
-        <article className="gradient-border group relative overflow-hidden rounded-2xl p-px transition-shadow duration-500 hover:shadow-[0_0_60px_rgba(108,99,255,0.15)]">
+        <article className="gradient-border group relative overflow-hidden rounded-2xl p-px transition-shadow duration-500 hover:shadow-[0_20px_50px_-12px_rgba(23,23,31,0.15)]">
           <div className="grid gap-10 rounded-2xl bg-bg-secondary p-8 sm:p-10 lg:grid-cols-2">
             <div className="flex flex-col justify-center">
               <div className="mb-2 flex flex-wrap items-center gap-3">
@@ -70,7 +70,7 @@ function FeaturedProject({ project }: { project: Project }) {
                 {project.tech.map((t) => (
                   <li
                     key={t}
-                    className="rounded-full border border-white/10 bg-bg-primary px-3 py-1 font-mono text-xs text-text-secondary"
+                    className="rounded-full border border-black/10 bg-bg-primary px-3 py-1 font-mono text-xs text-text-secondary"
                   >
                     {t}
                   </li>
@@ -80,7 +80,7 @@ function FeaturedProject({ project }: { project: Project }) {
               <div className="mt-8 flex flex-wrap items-center gap-5">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group/cta flex items-center gap-2 rounded-full bg-accent-primary px-6 py-3 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-[0_0_28px_rgba(108,99,255,0.45)]"
+                  className="group/cta flex items-center gap-2 rounded-full bg-accent-primary px-6 py-3 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-[0_6px_18px_rgba(30,58,95,0.3)]"
                 >
                   Inside the Build
                   <FiArrowRight className="transition-transform duration-300 group-hover/cta:translate-x-1" />
@@ -119,7 +119,7 @@ function FeaturedProject({ project }: { project: Project }) {
 function SecondaryProjectCard({ project }: { project: Project }) {
   return (
     <Reveal delay={0.05}>
-      <article className="group flex h-full flex-col rounded-2xl border border-white/5 bg-bg-secondary p-8 transition-all duration-300 hover:border-accent-primary/25 hover:bg-bg-surface">
+      <article className="group flex h-full flex-col rounded-2xl border border-black/8 bg-bg-secondary p-8 transition-all duration-300 hover:border-accent-primary/25 hover:bg-bg-surface">
         <p className="mb-2 font-mono text-xs tracking-widest text-text-muted">SOLO BUILD</p>
         <h3 className="font-display text-2xl font-semibold text-text-primary">
           {project.title}
@@ -131,7 +131,7 @@ function SecondaryProjectCard({ project }: { project: Project }) {
           {project.tech.slice(0, 4).map((t) => (
             <li
               key={t}
-              className="rounded-full border border-white/10 bg-bg-primary px-3 py-1 font-mono text-xs text-text-secondary"
+              className="rounded-full border border-black/10 bg-bg-primary px-3 py-1 font-mono text-xs text-text-secondary"
             >
               {t}
             </li>
@@ -185,7 +185,7 @@ function ComingSoonCard() {
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 rounded-full border border-text-muted px-5 py-2.5 font-mono text-xs text-text-secondary transition-colors duration-300 hover:border-accent-cyan/60 hover:text-accent-cyan"
         >
-          @{site.githubHandle} on GitHub <FiArrowUpRight className="h-3.5 w-3.5" />
+          {site.githubHandle} on GitHub <FiArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </article>
     </Reveal>
