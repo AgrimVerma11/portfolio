@@ -39,8 +39,8 @@ function ConstellationNode({
             cx="30"
             cy="30"
             r={RING_RADIUS}
-            fill="rgba(14,14,26,0.85)"
-            stroke="rgba(255,255,255,0.08)"
+            fill="rgba(255,255,255,0.9)"
+            stroke="rgba(23,23,31,0.1)"
             strokeWidth="1.5"
           />
           <motion.circle
@@ -67,7 +67,7 @@ function ConstellationNode({
         <span
           aria-hidden
           className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
-          style={{ boxShadow: `0 0 24px 4px ${color}44` }}
+          style={{ boxShadow: `0 2px 12px 2px ${color}33` }}
         />
       </div>
       <p className="mt-1 whitespace-nowrap text-center font-mono text-[11px] text-text-secondary transition-colors duration-300 group-hover:text-text-primary">
@@ -81,7 +81,8 @@ export default function Skills() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="skills" className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
+    <section id="skills" className="relative bg-bg-surface py-28 sm:py-36">
+    <div className="mx-auto max-w-6xl px-6">
       <Reveal>
         <p className="mb-3 font-mono text-sm tracking-wider text-accent-primary/80">
           <span className="text-text-muted">{"//"}</span> tech stack
@@ -112,7 +113,7 @@ export default function Skills() {
               y1={skillClusters[a].hub.y}
               x2={skillClusters[b].hub.x}
               y2={skillClusters[b].hub.y}
-              stroke="rgba(240,238,248,0.05)"
+              stroke="rgba(23,23,31,0.08)"
               strokeWidth="0.15"
               strokeDasharray="1 1.5"
               initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
@@ -198,13 +199,13 @@ export default function Skills() {
                 return (
                   <div
                     key={node.name}
-                    className="rounded-lg border border-white/5 bg-bg-secondary px-3 py-2.5"
+                    className="rounded-lg border border-black/8 bg-bg-secondary px-3 py-2.5"
                   >
                     <div className="flex items-center gap-2">
                       <Icon className="h-4 w-4 shrink-0 text-text-secondary" />
                       <span className="truncate text-sm text-text-primary">{node.name}</span>
                     </div>
-                    <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/5">
+                    <div className="mt-2 h-1 overflow-hidden rounded-full bg-black/8">
                       <motion.div
                         className="h-full rounded-full"
                         style={{ backgroundColor: cluster.color, opacity: 0.7 }}
@@ -221,6 +222,7 @@ export default function Skills() {
           </Reveal>
         ))}
       </div>
+    </div>
     </section>
   );
 }

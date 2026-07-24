@@ -94,7 +94,7 @@ const ENTRIES: {
   },
   {
     year: "2025",
-    title: "Opportunity Quest Begins",
+    title: "Opportunity Quest Ideation Begins",
     description:
       "Noticed the gap between faculty and students: opportunities existed, but never reached the people they were meant for. Started configuring and designing Opportunity Quest.",
   },
@@ -167,14 +167,15 @@ export default function Timeline({ availablePhotos = [] }: TimelineProps) {
   }, []);
 
   return (
-    <section id="journey" className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
+    <section id="journey" className="relative bg-bg-surface py-28 sm:py-36">
+    <div className="mx-auto max-w-6xl px-6">
       <SectionHeader label="journey" title="The Journey So Far" className="mb-16" />
 
       <div ref={containerRef} className="relative">
         {/* the spine */}
         <div
           aria-hidden
-          className="absolute bottom-0 left-4 top-0 w-px bg-white/5 md:left-1/2"
+          className="absolute bottom-0 left-4 top-0 w-px bg-black/8 md:left-1/2"
         />
         <div
           ref={lineRef}
@@ -182,7 +183,7 @@ export default function Timeline({ availablePhotos = [] }: TimelineProps) {
           className="absolute bottom-0 left-4 top-0 w-px md:left-1/2"
           style={{
             background:
-              "linear-gradient(to bottom, #6C63FF, #00D4FF 60%, #E8A87C)",
+              "linear-gradient(to bottom, #1E3A5F, #33566C 60%, #8A6A3D)",
             transform: "scaleY(0)",
             transformOrigin: "top center",
           }}
@@ -208,7 +209,7 @@ export default function Timeline({ availablePhotos = [] }: TimelineProps) {
                   }`}
                 >
                   <Reveal x={left ? -36 : 36} y={0} delay={0.05}>
-                    <article className="rounded-xl border border-white/5 bg-bg-secondary p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-primary/25 hover:shadow-[0_8px_30px_rgba(8,8,16,0.5)]">
+                    <article className="rounded-xl border border-black/8 bg-bg-secondary p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-primary/25 hover:shadow-[0_8px_24px_rgba(23,23,31,0.1)]">
                       <span className="mb-2 inline-block rounded-full bg-bg-primary px-3 py-1 font-mono text-xs text-accent-cyan">
                         {entry.year}
                         {entry.ongoing && (
@@ -235,7 +236,7 @@ export default function Timeline({ availablePhotos = [] }: TimelineProps) {
                             {photos.map((photo) => (
                               <div
                                 key={photo.src}
-                                className={`group/photo relative overflow-hidden rounded-lg border border-white/5 ${
+                                className={`group/photo relative overflow-hidden rounded-lg border border-black/8 ${
                                   photo.aspect ?? (pair ? "aspect-square" : "aspect-[16/10]")
                                 }`}
                               >
@@ -269,6 +270,7 @@ export default function Timeline({ availablePhotos = [] }: TimelineProps) {
           })}
         </ol>
       </div>
+    </div>
     </section>
   );
 }
