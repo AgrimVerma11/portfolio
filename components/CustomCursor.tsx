@@ -59,7 +59,7 @@ export default function CustomCursor() {
           y,
           translateX: "-50%",
           translateY: "-50%",
-          boxShadow: "0 0 12px 2px rgba(0, 212, 255, 0.55)",
+          boxShadow: "0 0 6px 1px rgba(51, 86, 108, 0.35)",
         }}
         animate={{ scale: hovering ? 0.5 : 1 }}
         transition={{ duration: 0.2 }}
@@ -72,7 +72,7 @@ export default function CustomCursor() {
         animate={{
           scale: pressed ? 0.8 : hovering ? 1.8 : 1,
           opacity: hovering ? 0.9 : 0.5,
-          backgroundColor: hovering ? "rgba(108, 99, 255, 0.08)" : "rgba(108, 99, 255, 0)",
+          backgroundColor: hovering ? "rgba(30,58,95, 0.06)" : "rgba(30,58,95, 0)",
         }}
         transition={{ duration: 0.25, ease: "easeOut" }}
       />

@@ -66,7 +66,7 @@ export default function BlogPost({ params }: Props) {
           </h1>
         </header>
 
-        <article className="prose prose-invert mt-12 max-w-none prose-headings:font-display prose-headings:text-text-primary prose-p:text-text-secondary prose-a:text-accent-cyan prose-strong:text-text-primary prose-code:font-mono prose-code:text-accent-warm prose-blockquote:border-l-accent-primary prose-blockquote:font-serif prose-blockquote:italic">
+        <article className="prose mt-12 max-w-none prose-headings:font-display prose-headings:text-text-primary prose-p:text-text-secondary prose-a:text-accent-cyan prose-strong:text-text-primary prose-code:font-mono prose-code:text-accent-warm prose-blockquote:border-l-accent-primary prose-blockquote:font-serif prose-blockquote:italic">
           <MDXRemote source={post.content} />
         </article>
       </main>

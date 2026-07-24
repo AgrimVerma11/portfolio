@@ -18,7 +18,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 rounded-full bg-accent-primary px-7 py-3.5 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-[0_0_36px_rgba(108,99,255,0.5)]"
+        className="mt-8 rounded-full bg-accent-primary px-7 py-3.5 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-[0_6px_20px_rgba(30,58,95,0.3)]"
       >
         Back to base
       </Link>

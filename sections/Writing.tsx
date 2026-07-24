@@ -46,7 +46,7 @@ export default function Writing() {
               href={post.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-full flex-col rounded-xl border border-white/5 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
+              className="group flex h-full flex-col rounded-xl border border-black/8 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
             >
               <span className="font-mono text-xs tracking-widest text-accent-warm">
                 {post.category.toUpperCase()}

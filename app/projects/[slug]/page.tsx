@@ -83,7 +83,7 @@ export default function ProjectPage({ params }: Props) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-accent-primary px-6 py-3 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-[0_0_28px_rgba(108,99,255,0.45)]"
+                className="flex items-center gap-2 rounded-full bg-accent-primary px-6 py-3 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-[0_6px_18px_rgba(30,58,95,0.3)]"
               >
                 <FiGithub /> View on GitHub
               </a>
@@ -103,7 +103,7 @@ export default function ProjectPage({ params }: Props) {
 
         <Reveal delay={0.25} className="mt-14">
           {project.logo ? (
-            <div className="flex w-full items-center justify-center rounded-xl border border-white/10 bg-white p-12 shadow-2xl sm:p-16">
+            <div className="flex w-full items-center justify-center rounded-xl border border-black/10 bg-white p-12 shadow-lg sm:p-16">
               <Image
                 src={project.logo}
                 alt={`${project.title} logo`}
@@ -152,7 +152,7 @@ export default function ProjectPage({ params }: Props) {
             {project.tech.map((t) => (
               <li
                 key={t}
-                className="rounded-full border border-white/10 bg-bg-secondary px-4 py-2 font-mono text-sm text-text-secondary"
+                className="rounded-full border border-black/10 bg-bg-secondary px-4 py-2 font-mono text-sm text-text-secondary"
               >
                 {t}
               </li>
@@ -169,7 +169,7 @@ export default function ProjectPage({ params }: Props) {
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {project.story.decisions.map((decision, i) => (
             <Reveal key={decision.title} delay={0.05 + i * 0.07}>
-              <article className="h-full rounded-xl border border-white/5 bg-bg-secondary p-6 transition-colors duration-300 hover:border-accent-primary/25">
+              <article className="h-full rounded-xl border border-black/8 bg-bg-secondary p-6 transition-colors duration-300 hover:border-accent-primary/25">
                 <h3 className="font-display text-lg font-semibold text-text-primary">
                   {decision.title}
                 </h3>

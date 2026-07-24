@@ -24,7 +24,7 @@ export default function Interlude() {
           <div className="relative mx-auto w-full max-w-sm">
             <div
               aria-hidden
-              className="absolute inset-x-0 bottom-0 mx-auto h-3/4 w-3/4 rounded-full bg-accent-primary/15 blur-[100px] motion-safe:animate-orb-drift"
+              className="absolute inset-x-0 bottom-0 mx-auto h-3/4 w-3/4 rounded-full bg-accent-primary/8 blur-[100px] motion-safe:animate-orb-drift"
             />
             <div
               className="relative aspect-[4/5]"
@@ -38,7 +38,7 @@ export default function Interlude() {
                 alt="Agrim Verma – side profile, deep in thought"
                 fill
                 sizes="(min-width: 1024px) 384px, 70vw"
-                className="object-contain object-bottom drop-shadow-[0_0_50px_rgba(108,99,255,0.22)]"
+                className="object-contain object-bottom drop-shadow-[0_20px_40px_rgba(23,23,31,0.12)]"
               />
               {/* duotone pull toward the palette */}
               <div

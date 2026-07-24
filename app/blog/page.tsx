@@ -36,7 +36,7 @@ export default function BlogIndex() {
 
         {posts.length === 0 ? (
           <Reveal delay={0.3} className="mt-20">
-            <div className="rounded-2xl border border-dashed border-white/10 bg-bg-secondary/40 p-12 text-center">
+            <div className="rounded-2xl border border-dashed border-black/10 bg-bg-secondary/40 p-12 text-center">
               <p className="font-mono text-sm text-text-secondary">
                 No posts yet – writing happens when the thoughts are ready.
               </p>
@@ -56,7 +56,7 @@ export default function BlogIndex() {
               <Reveal key={post.slug} delay={0.1 + i * 0.07}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block rounded-xl border border-white/5 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
+                  className="group block rounded-xl border border-black/8 bg-bg-secondary p-7 transition-all duration-300 hover:border-accent-warm/30 hover:bg-bg-surface"
                 >
                   <div className="flex items-center gap-4 font-mono text-xs">
                     <span className="tracking-widest text-accent-warm">
