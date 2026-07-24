@@ -22,10 +22,14 @@ const STATS = [
   { value: "'27", label: "TIET" },
 ];
 
+// Left-side badges sit above/below the card (true empty space) rather than
+// beside it: the card's text starts flush with its own left edge, so any
+// badge offset sideways from the left ends up overlapping real content
+// (the traffic lights, a terminal line) instead of clearing it.
 const FLOATING_BADGES = [
-  { label: "React", className: "-left-4 top-6", delay: "0s" },
+  { label: "React", className: "-left-4 -top-6", delay: "0s" },
   { label: "PyTorch", className: "-right-6 top-16", delay: "0.8s" },
-  { label: "Node.js", className: "-left-8 bottom-20", delay: "1.6s" },
+  { label: "Node.js", className: "-left-8 -bottom-8", delay: "1.6s" },
   { label: "MongoDB", className: "-right-4 bottom-8", delay: "2.4s" },
 ];
 
@@ -79,7 +83,7 @@ export default function About() {
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-white/5 bg-bg-secondary px-4 py-3 text-center transition-colors duration-300 hover:border-accent-primary/30"
+                  className="rounded-xl border border-black/8 bg-bg-secondary px-4 py-3 text-center transition-colors duration-300 hover:border-accent-primary/30"
                 >
                   <dt className="order-2 font-mono text-xs text-text-secondary">
                     {stat.label}
@@ -142,7 +146,7 @@ export default function About() {
               key={badge.label}
               aria-hidden
               style={{ animationDelay: badge.delay }}
-              className={`absolute hidden rounded-full border border-white/10 bg-bg-surface/90 px-3 py-1 font-mono text-xs text-text-secondary shadow-lg backdrop-blur motion-safe:animate-bob lg:inline-block ${badge.className}`}
+              className={`absolute hidden rounded-full border border-black/8 bg-bg-surface/90 px-3 py-1 font-mono text-xs text-text-secondary shadow-md backdrop-blur motion-safe:animate-bob lg:inline-block ${badge.className}`}
             >
               {badge.label}
             </span>

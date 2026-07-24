@@ -72,7 +72,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass border-b border-white/5 py-3" : "bg-transparent py-5"
+        scrolled ? "glass border-b border-black/8 py-3" : "bg-transparent py-5"
       }`}
     >
       <nav
@@ -104,7 +104,7 @@ export default function Navbar() {
                 {link.label}
                 {/* underline draws outward from center */}
                 <span
-                  className={`absolute -bottom-1 left-1/2 h-px -translate-x-1/2 bg-gradient-violet-cyan transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-1/2 h-px -translate-x-1/2 bg-accent-primary transition-all duration-300 ${
                     activeSection === link.href ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 />
@@ -114,6 +114,14 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-5 md:flex">
+          <a
+            href={site.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
+          >
+            Resume
+          </a>
           <a
             href={site.github}
             target="_blank"
@@ -127,7 +135,7 @@ export default function Navbar() {
             <Link
               href="/#contact"
               onClick={goTo("#contact")}
-              className="rounded-full border border-accent-primary/50 px-5 py-2 text-sm font-medium text-text-primary transition-all duration-300 hover:border-accent-primary hover:shadow-[0_0_24px_rgba(108,99,255,0.35)]"
+              className="rounded-full border border-accent-primary/50 px-5 py-2 text-sm font-medium text-text-primary transition-all duration-300 hover:border-accent-primary hover:shadow-[0_4px_16px_rgba(30,58,95,0.25)]"
             >
               Hire Me
             </Link>
@@ -153,7 +161,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex flex-col bg-bg-primary/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-bg-primary md:hidden"
             role="dialog"
             aria-modal="true"
           >
@@ -188,14 +196,23 @@ export default function Navbar() {
                 initial={reduce ? false : { opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 + navLinks.length * 0.07, duration: 0.5 }}
+                className="mt-4 flex items-center gap-6"
               >
+                <a
+                  href={site.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-sm text-text-secondary"
+                >
+                  Resume
+                </a>
                 <a
                   href={site.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 flex items-center gap-2 font-mono text-sm text-text-secondary"
+                  className="flex items-center gap-2 font-mono text-sm text-text-secondary"
                 >
-                  <FiGithub /> @{site.githubHandle}
+                  <FiGithub /> {site.githubHandle}
                 </a>
               </motion.li>
             </ul>
