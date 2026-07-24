@@ -16,11 +16,11 @@ export default function OgImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#080810",
+          background: "#FAFAFA",
           position: "relative",
         }}
       >
-        {/* ambient gradient glows */}
+        {/* ambient gradient washes, kept faint on a light background */}
         <div
           style={{
             position: "absolute",
@@ -29,7 +29,7 @@ export default function OgImage() {
             width: 500,
             height: 500,
             borderRadius: 9999,
-            background: "rgba(108, 99, 255, 0.25)",
+            background: "rgba(30,58,95, 0.1)",
             filter: "blur(120px)",
           }}
         />
@@ -41,7 +41,7 @@ export default function OgImage() {
             width: 460,
             height: 460,
             borderRadius: 9999,
-            background: "rgba(0, 212, 255, 0.18)",
+            background: "rgba(51, 86, 108, 0.08)",
             filter: "blur(120px)",
           }}
         />
@@ -49,7 +49,7 @@ export default function OgImage() {
           style={{
             fontSize: 26,
             letterSpacing: 10,
-            color: "#8A8AA0",
+            color: "#5C5C6B",
             marginBottom: 28,
           }}
         >
@@ -59,15 +59,14 @@ export default function OgImage() {
           style={{
             fontSize: 110,
             fontWeight: 700,
-            backgroundImage:
-              "linear-gradient(135deg, #6C63FF 0%, #00D4FF 50%, #E8A87C 100%)",
+            backgroundImage: "linear-gradient(135deg, #1E3A5F 0%, #7A70EA 100%)",
             backgroundClip: "text",
             color: "transparent",
           }}
         >
           Agrim Verma
         </div>
-        <div style={{ fontSize: 24, color: "#8A8AA0", marginTop: 30 }}>
+        <div style={{ fontSize: 24, color: "#5C5C6B", marginTop: 30 }}>
           TIET &apos;27 · AI/ML Mentor @ GDG · Open Source
         </div>
         <div
@@ -75,7 +74,7 @@ export default function OgImage() {
             position: "absolute",
             bottom: 40,
             fontSize: 20,
-            color: "#3A3A52",
+            color: "#9C9CA8",
           }}
         >
           {site.url.replace(/^https?:\/\//, "")}

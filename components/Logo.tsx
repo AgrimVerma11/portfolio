@@ -9,9 +9,8 @@ export default function Logo({ className = "h-8 w-8" }: { className?: string }) 
     >
       <defs>
         <linearGradient id="av-grad" x1="0" y1="0" x2="40" y2="40">
-          <stop offset="0%" stopColor="#6C63FF" />
-          <stop offset="60%" stopColor="#00D4FF" />
-          <stop offset="100%" stopColor="#E8A87C" />
+          <stop offset="0%" stopColor="#1E3A5F" />
+          <stop offset="100%" stopColor="#33566C" />
         </linearGradient>
       </defs>
       {/* A – open apex, crossbar doubles as the V's entry stroke */}

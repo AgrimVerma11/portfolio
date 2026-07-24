@@ -47,7 +47,7 @@ export const skillClusters: SkillCluster[] = [
   {
     category: "Frontend",
     hub: { x: 16, y: 25 },
-    color: "#6C63FF",
+    color: "#1E3A5F",
     nodes: [
       { name: "HTML/CSS", icon: SiHtml5, level: 0.95, x: 5, y: 13 },
       { name: "React", icon: SiReact, level: 0.9, x: 17, y: 7 },
@@ -59,7 +59,7 @@ export const skillClusters: SkillCluster[] = [
   {
     category: "Backend",
     hub: { x: 49, y: 17 },
-    color: "#00D4FF",
+    color: "#33566C",
     nodes: [
       { name: "Node.js", icon: SiNodedotjs, level: 0.85, x: 39, y: 6 },
       { name: "Express", icon: SiExpress, level: 0.85, x: 57, y: 5 },
@@ -70,7 +70,7 @@ export const skillClusters: SkillCluster[] = [
   {
     category: "ML / AI",
     hub: { x: 83, y: 26 },
-    color: "#E8A87C",
+    color: "#8A6A3D",
     nodes: [
       { name: "Python", icon: SiPython, level: 0.9, x: 72, y: 12 },
       { name: "PyTorch", icon: SiPytorch, level: 0.75, x: 87, y: 8 },
@@ -82,7 +82,7 @@ export const skillClusters: SkillCluster[] = [
   {
     category: "Databases",
     hub: { x: 24, y: 68 },
-    color: "#00D4FF",
+    color: "#33566C",
     nodes: [
       { name: "MongoDB", icon: SiMongodb, level: 0.85, x: 14, y: 57 },
       { name: "MySQL", icon: SiMysql, level: 0.7, x: 31, y: 79 },
@@ -91,7 +91,7 @@ export const skillClusters: SkillCluster[] = [
   {
     category: "Languages",
     hub: { x: 54, y: 64 },
-    color: "#6C63FF",
+    color: "#1E3A5F",
     nodes: [
       { name: "C++", icon: SiCplusplus, level: 0.85, x: 45, y: 54 },
       { name: "JavaScript", icon: SiJavascript, level: 0.9, x: 64, y: 55 },
@@ -101,7 +101,7 @@ export const skillClusters: SkillCluster[] = [
   {
     category: "DevOps / Tools",
     hub: { x: 82, y: 71 },
-    color: "#E8A87C",
+    color: "#8A6A3D",
     nodes: [
       { name: "Git", icon: SiGit, level: 0.9, x: 74, y: 59 },
       { name: "GitHub", icon: SiGithub, level: 0.9, x: 92, y: 61 },

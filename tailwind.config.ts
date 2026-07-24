@@ -11,31 +11,26 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          primary: "#080810",
-          secondary: "#0E0E1A",
-          surface: "#14141F",
+          primary: "#F7F6F2",
+          secondary: "#EAE7DD",
+          surface: "#DFDBCC",
         },
         accent: {
-          primary: "#6C63FF",
-          warm: "#E8A87C",
-          cyan: "#00D4FF",
+          primary: "#1E3A5F",
+          warm: "#8A6A3D",
+          cyan: "#33566C",
         },
         text: {
-          primary: "#F0EEF8",
-          secondary: "#8A8AA0",
-          muted: "#3A3A52",
+          primary: "#1B1D22",
+          secondary: "#585B62",
+          muted: "#6E6B5D",
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
-      },
-      backgroundImage: {
-        "gradient-hero":
-          "linear-gradient(135deg, #6C63FF 0%, #00D4FF 50%, #E8A87C 100%)",
-        "gradient-violet-cyan": "linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%)",
+        serif: ["var(--font-display)", "Georgia", "serif"],
       },
       keyframes: {
         "orb-drift": {

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Inter, JetBrains_Mono, Cormorant_Garamond } from "next/font/google";
+import { Newsreader, Work_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -9,17 +8,18 @@ import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 
-const clashDisplay = localFont({
-  src: [
-    { path: "./fonts/ClashDisplay-500.woff2", weight: "500" },
-    { path: "./fonts/ClashDisplay-600.woff2", weight: "600" },
-    { path: "./fonts/ClashDisplay-700.woff2", weight: "700" },
-  ],
+// Editorial serif carries both display headings and italic accent moments,
+// so the site reads as one considered typographic voice rather than three
+// competing families.
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -28,14 +28,6 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["italic"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -82,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${clashDisplay.variable} ${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable} bg-bg-primary font-sans text-text-primary`}
+        className={`${newsreader.variable} ${workSans.variable} ${jetbrainsMono.variable} bg-bg-primary font-sans text-text-primary`}
       >
         <SmoothScroll>
           <CustomCursor />

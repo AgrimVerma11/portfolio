@@ -3,21 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #080810;
-  --bg-secondary: #0e0e1a;
-  --bg-surface: #14141f;
-  --accent-primary: #6c63ff;
-  --accent-warm: #e8a87c;
-  --accent-cyan: #00d4ff;
-  --text-primary: #f0eef8;
-  --text-secondary: #8a8aa0;
-  --text-muted: #3a3a52;
-  --gradient-hero: linear-gradient(135deg, #6c63ff 0%, #00d4ff 50%, #e8a87c 100%);
+  --bg-primary: #f7f6f2;
+  --bg-secondary: #eae7dd;
+  --bg-surface: #dfdbcc;
+  --accent-primary: #1e3a5f;
+  --accent-warm: #8a6a3d;
+  --accent-cyan: #33566c;
+  --text-primary: #1b1d22;
+  --text-secondary: #585b62;
+  --text-muted: #6e6b5d;
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -29,7 +28,7 @@ body {
 }
 
 ::selection {
-  background: rgba(108, 99, 255, 0.35);
+  background: rgba(30,58,95, 0.18);
   color: var(--text-primary);
 }
 
@@ -41,12 +40,12 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #232338;
+  background: #d3cfbe;
   border-radius: 8px;
   border: 2px solid var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #32324e;
+  background: #c0bba5;
 }
 
 /* Native cursor is hidden only when the custom cursor has mounted on a
@@ -74,33 +73,19 @@ section[id] {
 }
 
 @layer utilities {
-  .text-gradient {
-    background: var(--gradient-hero);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .text-gradient-vc {
-    background: linear-gradient(120deg, #6c63ff 10%, #00d4ff 90%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
   .glass {
-    background: rgba(8, 8, 16, 0.65);
+    background: rgba(247, 246, 242, 0.82);
     backdrop-filter: blur(16px) saturate(1.4);
     -webkit-backdrop-filter: blur(16px) saturate(1.4);
   }
 
-  /* Film-grain overlay via inline SVG noise — adds texture without a network request */
+  /* Film-grain overlay via inline SVG noise: adds texture without a network request */
   .grain::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.035;
+    opacity: 0.015;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -117,9 +102,9 @@ section[id] {
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(108, 99, 255, 0.5),
-      rgba(0, 212, 255, 0.15) 50%,
-      rgba(232, 168, 124, 0.35)
+      rgba(30,58,95, 0.35),
+      rgba(51, 86, 108, 0.12) 50%,
+      rgba(138, 106, 61, 0.2)
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
