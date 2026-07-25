@@ -9,10 +9,9 @@ Source for my personal site – [github.com/AgrimVerma11](https://github.com/Agr
 - Next.js 14 (App Router) + TypeScript
 - Tailwind CSS, custom theme in `tailwind.config.ts`
 - Framer Motion for reveals and micro-interactions, GSAP ScrollTrigger for the timeline draw
-- React Three Fiber for the hero particle field
 - Lenis for smooth scrolling
 - MDX blog via `next-mdx-remote` + `gray-matter`
-- Clash Display self-hosted; Inter / JetBrains Mono / Cormorant Garamond via `next/font`
+- Newsreader for headings, Work Sans for body text, JetBrains Mono for code bits, all via `next/font`
 
 ## Running locally
 
