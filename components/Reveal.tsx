@@ -12,7 +12,7 @@ type RevealProps = {
   className?: string;
 };
 
-/** Scroll-triggered reveal: slide + blur-to-sharp dissolve. */
+/** Scroll-triggered reveal: slide + fade. Opacity/transform only so it stays on the compositor. */
 export default function Reveal({
   children,
   delay = 0,
@@ -25,8 +25,8 @@ export default function Reveal({
 
   return (
     <motion.div
-      initial={reduce ? { opacity: 1 } : { opacity: 0, y, x, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, x: 0, filter: "blur(0px)" }}
+      initial={reduce ? { opacity: 1 } : { opacity: 0, y, x }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once, margin: "-60px" }}
       transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}

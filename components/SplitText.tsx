@@ -12,7 +12,8 @@ type SplitTextProps = {
 };
 
 /**
- * Splits text into characters that stagger in from below with a blur dissolve.
+ * Splits text into characters that stagger in from below. Opacity/transform
+ * only: animating filter blur on every character was a mobile GPU cost.
  * Words are kept whole so lines never break mid-word.
  */
 export default function SplitText({
@@ -47,13 +48,12 @@ export default function SplitText({
             return (
               <motion.span
                 key={i}
-                className="inline-block will-change-transform"
+                className="inline-block"
                 variants={{
-                  hidden: { y: "0.7em", opacity: 0, filter: "blur(6px)" },
+                  hidden: { y: "0.7em", opacity: 0 },
                   visible: {
                     y: 0,
                     opacity: 1,
-                    filter: "blur(0px)",
                     transition: {
                       delay: delay + i * stagger,
                       duration: 0.7,

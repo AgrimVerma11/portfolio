@@ -3,23 +3,17 @@
 import { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-/** Curtain wipe on route entry – a dark panel that lifts to reveal the page. */
+/** Quiet cross-fade on route entry. Opacity only, so it is cheap on phones. */
 export default function Template({ children }: { children: ReactNode }) {
   const reduce = useReducedMotion();
 
   return (
-    <>
-      {!reduce && (
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[90] bg-bg-secondary"
-          initial={{ scaleY: 1 }}
-          animate={{ scaleY: 0 }}
-          transition={{ duration: 0.7, ease: [0.83, 0, 0.17, 1] }}
-          style={{ transformOrigin: "top" }}
-        />
-      )}
+    <motion.div
+      initial={reduce ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
       {children}
-    </>
+    </motion.div>
   );
 }

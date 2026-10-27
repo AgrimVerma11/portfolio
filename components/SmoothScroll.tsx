@@ -8,11 +8,17 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setEnabled(!mq.matches);
+    // Smooth-scroll only on mouse/trackpad devices; touch keeps native momentum.
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const fine = window.matchMedia("(pointer: fine)");
+    const update = () => setEnabled(!reduced.matches && fine.matches);
     update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
+    reduced.addEventListener("change", update);
+    fine.addEventListener("change", update);
+    return () => {
+      reduced.removeEventListener("change", update);
+      fine.removeEventListener("change", update);
+    };
   }, []);
 
   if (!enabled) return <>{children}</>;

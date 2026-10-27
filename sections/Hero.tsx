@@ -73,15 +73,15 @@ export default function Hero() {
       {/* ambient gradient washes */}
       <div
         aria-hidden
-        className="absolute -left-32 top-1/4 h-[28rem] w-[28rem] rounded-full bg-accent-primary/8 blur-[120px] motion-safe:animate-orb-drift"
+        className="absolute -left-32 top-1/4 h-[28rem] w-[28rem] rounded-full bg-accent-primary/8 blur-[70px] md:blur-[120px] motion-safe:md:animate-orb-drift"
       />
       <div
         aria-hidden
-        className="absolute -right-32 bottom-1/4 h-[26rem] w-[26rem] rounded-full bg-accent-cyan/6 blur-[120px] motion-safe:animate-orb-drift-alt"
+        className="absolute -right-32 bottom-1/4 h-[26rem] w-[26rem] rounded-full bg-accent-cyan/6 blur-[70px] md:blur-[120px] motion-safe:md:animate-orb-drift-alt"
       />
       <div
         aria-hidden
-        className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-warm/6 blur-[100px]"
+        className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-warm/6 blur-[60px] md:blur-[100px]"
       />
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">

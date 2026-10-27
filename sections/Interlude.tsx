@@ -24,7 +24,7 @@ export default function Interlude() {
           <div className="relative mx-auto w-full max-w-sm">
             <div
               aria-hidden
-              className="absolute inset-x-0 bottom-0 mx-auto h-3/4 w-3/4 rounded-full bg-accent-primary/8 blur-[100px] motion-safe:animate-orb-drift"
+              className="absolute inset-x-0 bottom-0 mx-auto h-3/4 w-3/4 rounded-full bg-accent-primary/8 blur-[60px] md:blur-[100px] motion-safe:md:animate-orb-drift"
             />
             <div
               className="relative aspect-[4/5]"

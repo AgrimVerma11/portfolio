@@ -95,7 +95,7 @@ export default function Contact() {
       {/* ambient orb */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-0 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-accent-primary/6 blur-[140px] motion-safe:animate-orb-drift"
+        className="absolute left-1/2 top-0 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-accent-primary/6 blur-[80px] md:blur-[140px] motion-safe:md:animate-orb-drift"
       />
 
       <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">

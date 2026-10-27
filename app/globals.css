@@ -67,6 +67,14 @@ body {
   border-radius: 2px;
 }
 
+/* Writing is the bronze section: its focus ring and selection follow suit */
+#writing :focus-visible {
+  outline-color: var(--accent-warm);
+}
+#writing ::selection {
+  background: rgba(138, 106, 61, 0.2);
+}
+
 /* Anchor jumps land below the fixed navbar */
 section[id] {
   scroll-margin-top: 5.5rem;
@@ -74,9 +82,14 @@ section[id] {
 
 @layer utilities {
   .glass {
-    background: rgba(247, 246, 242, 0.82);
-    backdrop-filter: blur(16px) saturate(1.4);
-    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    background: rgba(247, 246, 242, 0.95);
+  }
+  @media (min-width: 768px) {
+    .glass {
+      background: rgba(247, 246, 242, 0.82);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    }
   }
 
   /* Film-grain overlay via inline SVG noise: adds texture without a network request */
