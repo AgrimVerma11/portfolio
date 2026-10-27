@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowRight, FiArrowUpRight, FiGithub } from "react-icons/fi";
+import { FiArrowRight, FiArrowUpRight, FiCalendar, FiGithub } from "react-icons/fi";
 import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
 import TiltCard from "@/components/TiltCard";
 import BrowserMock from "@/components/BrowserMock";
 import { projects, type Project } from "@/lib/projects";
-import { site } from "@/lib/site";
+import { demoRequestHref, site } from "@/lib/site";
 
 function mockUrl(project: Project) {
   return project.live ? project.live.replace(/^https?:\/\//, "") : `${project.slug}.app`;
@@ -120,7 +120,15 @@ function SecondaryProjectCard({ project }: { project: Project }) {
   return (
     <Reveal delay={0.05}>
       <article className="group flex h-full flex-col rounded-2xl border border-black/8 bg-bg-secondary p-8 transition-all duration-300 hover:border-accent-primary/25 hover:bg-bg-surface">
-        <p className="mb-2 font-mono text-xs tracking-widest text-text-muted">SOLO BUILD</p>
+        <div className="mb-2 flex flex-wrap items-center gap-3">
+          <p className="font-mono text-xs tracking-widest text-text-muted">SOLO BUILD</p>
+          {project.live && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#28C840]/30 bg-[#28C840]/10 px-2.5 py-1 font-mono text-[11px] tracking-wider text-[#28C840]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#28C840] motion-safe:animate-pulse-dot" />
+              LIVE
+            </span>
+          )}
+        </div>
         <h3 className="font-display text-2xl font-semibold text-text-primary">
           {project.title}
         </h3>
@@ -137,7 +145,7 @@ function SecondaryProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
-        <div className="mt-6 flex items-center gap-5">
+        <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
           <Link
             href={`/projects/${project.slug}`}
             className="group/cta flex items-center gap-1.5 text-sm font-semibold text-text-primary transition-colors duration-300 hover:text-accent-primary"
@@ -145,6 +153,16 @@ function SecondaryProjectCard({ project }: { project: Project }) {
             Inside the Build
             <FiArrowRight className="transition-transform duration-300 group-hover/cta:translate-x-1" />
           </Link>
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm font-medium text-text-secondary transition-colors hover:text-accent-cyan"
+            >
+              Live App <FiArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          )}
           <a
             href={project.github}
             target="_blank"
@@ -155,6 +173,15 @@ function SecondaryProjectCard({ project }: { project: Project }) {
             <FiGithub className="h-4 w-4" />
           </a>
         </div>
+        {project.live && (
+          <a
+            href={demoRequestHref(project.title)}
+            className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-accent-primary/40 px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-300 hover:border-accent-primary hover:shadow-[0_4px_16px_rgba(30,58,95,0.2)]"
+          >
+            <FiCalendar className="h-4 w-4" />
+            Request a Demo
+          </a>
+        )}
       </article>
     </Reveal>
   );

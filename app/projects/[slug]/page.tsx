@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FiArrowLeft, FiArrowUpRight, FiGithub } from "react-icons/fi";
+import { FiArrowLeft, FiArrowUpRight, FiCalendar, FiGithub } from "react-icons/fi";
 import Reveal from "@/components/Reveal";
 import SplitText from "@/components/SplitText";
 import BrowserMock from "@/components/BrowserMock";
 import Footer from "@/components/Footer";
 import { getProject, projects } from "@/lib/projects";
-import { site } from "@/lib/site";
+import { demoRequestHref, site } from "@/lib/site";
 
 type Props = { params: { slug: string } };
 
@@ -95,6 +95,14 @@ export default function ProjectPage({ params }: Props) {
                   className="flex items-center gap-2 text-sm font-medium text-text-secondary transition-colors hover:text-accent-cyan"
                 >
                   Live site <FiArrowUpRight />
+                </a>
+              )}
+              {project.live && !project.featured && (
+                <a
+                  href={demoRequestHref(project.title)}
+                  className="flex items-center gap-2 rounded-full border border-accent-primary/40 px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-300 hover:border-accent-primary hover:shadow-[0_4px_16px_rgba(30,58,95,0.2)]"
+                >
+                  <FiCalendar /> Request a Demo
                 </a>
               )}
             </div>

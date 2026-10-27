@@ -109,6 +109,7 @@ export const projects: Project[] = [
       "Modular REST architecture engineered to absorb new opportunity types and scale without rewrites",
     ],
     github: "https://github.com/AgrimVerma11/OpportunityQuest",
+    live: "https://opportunityquest.agrimverma.dev",
     featured: false,
     story: {
       problem: {
@@ -135,7 +136,7 @@ export const projects: Project[] = [
       outcome: {
         heading: "The Outcome",
         body: [
-          "A deployable, security-hardened platform that covers the full engineering lifecycle solo: schema design, API architecture, auth, and frontend state, plus the production concerns (rate limiting, cookie security, CORS policy) that separate a demo from a system. It's the kind of infrastructure campuses usually buy, built from a gap I noticed and refused to ignore.",
+          "A live, security-hardened platform that covers the full engineering lifecycle solo: schema design, API architecture, auth, and frontend state, plus the production concerns (rate limiting, cookie security, CORS policy) that separate a demo from a system. It's the kind of infrastructure campuses usually buy, built from a gap I noticed and refused to ignore.",
           "The codebase is structured so the next features – notifications, saved searches, posting workflows – slot into existing patterns instead of requiring rewrites. That's deliberate: the platform was engineered for the roadmap, not just the demo.",
         ],
       },
