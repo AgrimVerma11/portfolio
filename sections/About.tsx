@@ -74,7 +74,9 @@ export default function About() {
                 <GdgLogo className="mx-0.5 inline-block h-3 w-6 align-baseline" />
               </span>{" "}
               Google Developer Groups, TIET. Outside the terminal, I write:
-              philosophy, mysticism, and whatever the soul insists on.
+              philosophy, mysticism, and whatever the soul insists on, including
+              as a contributing author at the international webzine A Lotus in
+              the Mud.
             </p>
           </Reveal>
 

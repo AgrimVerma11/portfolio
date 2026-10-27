@@ -32,6 +32,18 @@ const ENTRIES: {
     ongoing: true,
   },
   {
+    year: "2026",
+    title: "McKinsey Forward Program",
+    description:
+      "Accepted into McKinsey Forward, McKinsey & Company's learning program for building problem-solving and leadership skills.",
+  },
+  {
+    year: "2026",
+    title: "Author @ A Lotus in the Mud",
+    description:
+      "Accepted as a contributing author at A Lotus in the Mud, an international wellness and spirituality webzine. The editor called the first submission \u201cno editing required\u201d.",
+  },
+  {
     year: "Apr 2026",
     title: "GDG BuildSpace",
     description:
@@ -130,9 +142,11 @@ const ENTRIES: {
 type TimelineProps = {
   /** filenames present in public/events – photos render only once their file exists */
   availablePhotos?: string[];
+  /** tiny base64 previews keyed by filename, used as blur-up placeholders */
+  photoBlurs?: Record<string, string>;
 };
 
-export default function Timeline({ availablePhotos = [] }: TimelineProps) {
+export default function Timeline({ availablePhotos = [], photoBlurs = {} }: TimelineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
 
@@ -244,6 +258,8 @@ export default function Timeline({ availablePhotos = [] }: TimelineProps) {
                                   src={photo.src}
                                   alt={photo.alt}
                                   fill
+                                  placeholder={photoBlurs[photo.src.split("/").pop() ?? ""] ? "blur" : "empty"}
+                                  blurDataURL={photoBlurs[photo.src.split("/").pop() ?? ""]}
                                   sizes={
                                     pair
                                       ? "(min-width: 768px) 220px, 40vw"

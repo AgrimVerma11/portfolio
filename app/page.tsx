@@ -1,4 +1,6 @@
 import fs from "fs";
+// @ts-expect-error sharp's bundled types are hidden by its package "exports" map
+import sharp from "sharp";
 import path from "path";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
@@ -18,13 +20,26 @@ const personJsonLd = {
   url: site.url,
   jobTitle: "Full Stack Developer & ML Engineer",
   alumniOf: "Thapar Institute of Engineering and Technology",
-  sameAs: [site.github, site.linkedin, site.substack],
+  sameAs: [site.github, site.linkedin, site.substack, site.alotus],
 };
 
-export default function Home() {
+export default async function Home() {
   // Timeline photos activate as their files land in public/events
   const eventsDir = path.join(process.cwd(), "public", "events");
   const eventPhotos = fs.existsSync(eventsDir) ? fs.readdirSync(eventsDir) : [];
+
+  // Tiny blurred previews so photos fade in from a soft placeholder instead of popping in
+  const photoBlurs: Record<string, string> = {};
+  await Promise.all(
+    eventPhotos.map(async (file) => {
+      try {
+        const buf = await sharp(path.join(eventsDir, file)).resize(16).blur(1).jpeg({ quality: 50 }).toBuffer();
+        photoBlurs[file] = `data:image/jpeg;base64,${buf.toString("base64")}`;
+      } catch {
+        /* non-image file: skip */
+      }
+    })
+  );
 
   return (
     <>
@@ -37,7 +52,7 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
-        <Timeline availablePhotos={eventPhotos} />
+        <Timeline availablePhotos={eventPhotos} photoBlurs={photoBlurs} />
         <Interlude />
         <Writing />
         <Contact />
