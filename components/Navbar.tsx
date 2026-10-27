@@ -115,14 +115,6 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-5 md:flex">
           <a
-            href={site.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
-          >
-            Resume
-          </a>
-          <a
             href={site.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -198,14 +190,6 @@ export default function Navbar() {
                 transition={{ delay: 0.08 + navLinks.length * 0.07, duration: 0.5 }}
                 className="mt-4 flex items-center gap-6"
               >
-                <a
-                  href={site.resume}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-sm text-text-secondary"
-                >
-                  Resume
-                </a>
                 <a
                   href={site.github}
                   target="_blank"
